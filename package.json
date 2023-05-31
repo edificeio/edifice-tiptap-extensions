@@ -2,6 +2,17 @@
   "name": "rte-content-converter",
   "version": "1.0.0",
   "private": false,
+  "description": "Rich Text Editor Content Converter",
+  "homepage": "https://github.com/opendigitaleducation/rte-content-converter",
+  "bugs": {
+    "url": "https://github.com/opendigitaleducation/rte-content-converter/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/opendigitaleducation/rte-content-converter.git"
+  },
+  "license": "AGPL-3.0",
+  "author": "Open Digital Education",
   "type": "module",
   "exports": {
     ".": {
@@ -17,10 +28,11 @@
   "scripts": {
     "build": "vite build",
     "dev": "vite",
+    "format": "pnpm run format:write && pnpm run format:check",
     "format:check": "prettier --check 'src/**/*.ts'",
     "format:write": "prettier --write 'src/**/*.ts'",
     "lint": "eslint src --ext ts --report-unused-disable-directives --max-warnings 0",
-    "pre-commit": "pnpm lint && pnpm format:write && pnpm format:check",
+    "pre-commit": "pnpm lint && pnpm format",
     "prepare": "husky install"
   },
   "dependencies": {
@@ -48,5 +60,8 @@
   "packageManager": "pnpm@8.5.0",
   "engines": {
     "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
