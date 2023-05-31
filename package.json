@@ -23,7 +23,7 @@
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "files": [
-    "dist"
+    "dist/*"
   ],
   "scripts": {
     "build": "vite build",
