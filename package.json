@@ -1,0 +1,52 @@
+{
+  "name": "rte-content-converter",
+  "version": "0.1.0",
+  "private": false,
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite",
+    "format:check": "prettier --check 'src/**/*.ts'",
+    "format:write": "prettier --write 'src/**/*.ts'",
+    "lint": "eslint src --ext ts --report-unused-disable-directives --max-warnings 0",
+    "pre-commit": "pnpm lint && pnpm format:write && pnpm format:check",
+    "prepare": "husky install"
+  },
+  "dependencies": {
+    "@tiptap/core": "^2.0.3",
+    "@tiptap/extension-bold": "^2.0.3",
+    "@tiptap/extension-document": "^2.0.3",
+    "@tiptap/extension-paragraph": "^2.0.3",
+    "@tiptap/extension-text": "^2.0.3",
+    "@tiptap/html": "^2.0.3",
+    "@tiptap/pm": "^2.0.3",
+    "@tiptap/starter-kit": "^2.0.3"
+  },
+  "devDependencies": {
+    "@types/node": "^20.2.5",
+    "@typescript-eslint/eslint-plugin": "^5.59.0",
+    "@typescript-eslint/parser": "^5.59.0",
+    "eslint": "^8.38.0",
+    "husky": "^8.0.3",
+    "prettier": "^2.8.8",
+    "semantic-release": "20.1.0",
+    "typescript": "^5.0.2",
+    "vite": "^4.3.9",
+    "vite-plugin-dts": "2.3.0"
+  },
+  "packageManager": "pnpm@8.5.0",
+  "engines": {
+    "node": ">=16"
+  }
+}
