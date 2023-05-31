@@ -4,7 +4,6 @@ name: Semantic release
     branches:
       - main
       - dev
-      - '*.x'
 permissions:
   contents: read #  for checkout
 jobs:

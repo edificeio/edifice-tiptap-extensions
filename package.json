@@ -1,6 +1,6 @@
 {
   "name": "rte-content-converter",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": false,
   "type": "module",
   "exports": {
@@ -47,6 +47,6 @@
   },
   "packageManager": "pnpm@8.5.0",
   "engines": {
-    "node": ">=16"
+    "node": ">=18"
   }
 }
