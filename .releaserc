@@ -28,6 +28,7 @@
     "@semantic-release/npm",
     "@semantic-release/github"
   ],
+  "extends": "semantic-release-monorepo",
   "branches": [
     "main",
     {

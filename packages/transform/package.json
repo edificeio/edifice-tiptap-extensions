@@ -1,0 +1,49 @@
+{
+  "name": "@rte-content-converter/transform",
+  "version": "1.0.0",
+  "private": false,
+  "description": "Rich Text Editor Transform",
+  "homepage": "https://github.com/opendigitaleducation/rte-content-converter",
+  "bugs": {
+    "url": "https://github.com/opendigitaleducation/rte-content-converter/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/opendigitaleducation/rte-content-converter.git"
+  },
+  "license": "AGPL-3.0",
+  "author": "Open Digital Education",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "files": [
+    "dist/*"
+  ],
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite",
+    "format": "pnpm run format:write && pnpm run format:check",
+    "format:check": "prettier --check 'src/**/*.ts'",
+    "format:write": "prettier --write 'src/**/*.ts'",
+    "lint": "eslint src --ext ts --report-unused-disable-directives --max-warnings 0"
+  },
+  "dependencies": {
+    "@tiptap/core": "2.0.3",
+    "@tiptap/extension-bold": "2.0.3",
+    "@tiptap/extension-document": "2.0.3",
+    "@tiptap/extension-paragraph": "2.0.3",
+    "@tiptap/extension-text": "2.0.3",
+    "@tiptap/html": "2.0.3",
+    "@tiptap/pm": "2.0.3",
+    "@tiptap/starter-kit": "2.0.3"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

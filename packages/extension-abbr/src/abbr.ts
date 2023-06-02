@@ -1,5 +1,20 @@
 import { Mark, mergeAttributes } from '@tiptap/core';
 
+declare module '@tiptap/core' {
+  interface Commands<ReturnType> {
+    abbr: {
+      /**
+       * Set a video node
+       */
+      setAbbr: (src: string) => ReturnType;
+      /**
+       * Toggle a video
+       */
+      toggleAbbr: (src: string) => ReturnType;
+    };
+  }
+}
+
 const Abbr = Mark.create({
   name: 'abbr',
 

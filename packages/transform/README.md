@@ -16,37 +16,32 @@ pnpm install
 ### Build
 
 ```bash
-turbo build
+pnpm build
 ```
 
 ### Lint
 
 ```bash
-turbo lint
+pnpm lint
 ```
 
 ### Prettier
 
 ```bash
-turbo format
+pnpm format
 ```
 
-## Create a new extension
+## Semantic Release
 
-You can create a new extension by copying an existing one.
+### Node 16 | 18
 
-```bash
-turbo gen workspace --copy --name @rte-content-converter/extension-[name]
+The package is released to the npm registry via `semantic-release`. When installing or building locally, you will receive a warning message if you are using node 16:
+
+```js
+Unsupported engine: wanted: {"node":">=18"} (current: {"node":"v16.20.0","pnpm":"8.5.0"})
 ```
 
-Follow the prompts:
-
-- What type of workspace should be added? > Choose `package`
-- Which workspace should "@rte-content-converter/xxx" start from? > `Select` one extension
-- Where should "@rte-content-converter/extension-[name]" be added? > `Enter`
-- Add workspace dependencies to "@rte-content-converter/extension-abbr"? Choose `no`
-
-It will copy the template from an existing extension to a new folder. You can now modify everything according to your needs.
+Node 18 is required by `semantic-release` and the Github Action workflow, so that's fine. You can ignore the warning. 👌🏻
 
 ### Push Force
 
