@@ -63,19 +63,29 @@ const Video = Node.create({
       width: {
         default: '420',
         renderHTML: (attributes: any) => {
-          return { 'width': parseInt((attributes.videoResolution || '').split('x')[0] || 420 )};
+          return {
+            width: parseInt(
+              (attributes.videoResolution || '').split('x')[0] || 420,
+            ),
+          };
         },
         parseHTML: (element: any) =>
-          (element.getAttribute('data-video-resolution') || '').split('x')[0] || 420
+          (element.getAttribute('data-video-resolution') || '').split('x')[0] ||
+          420,
       },
       height: {
         default: '700',
         renderHTML: (attributes: any) => {
-          return { 'height': parseInt((attributes.videoResolution || '').split('x')[1] || 700 )};
+          return {
+            height: parseInt(
+              (attributes.videoResolution || '').split('x')[1] || 700,
+            ),
+          };
         },
         parseHTML: (element: any) =>
-          (element.getAttribute('data-video-resolution') || '').split('x')[1] || 700
-      }, 
+          (element.getAttribute('data-video-resolution') || '').split('x')[1] ||
+          700,
+      },
     };
   },
 
