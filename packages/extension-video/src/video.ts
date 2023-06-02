@@ -38,7 +38,7 @@ const Video = Node.create({
         renderHTML: (attrs: any) => ({ src: attrs.src }),
       },
       controls: {
-        default: true
+        default: true,
       },
       documentId: {
         default: '',
@@ -66,13 +66,12 @@ const Video = Node.create({
       width: {
         renderHTML: (attributes: any) => {
           return {
-            width: parseInt(
-              (attributes.videoResolution || '').split('x')[0],
-            ),
+            width: parseInt((attributes.videoResolution || '').split('x')[0]),
           };
         },
         parseHTML: (element: any) =>
-          (element.getAttribute('data-video-resolution') || '').split('x')[0] || null,
+          (element.getAttribute('data-video-resolution') || '').split('x')[0] ||
+          null,
       },
       height: {
         renderHTML: (attributes: any) => {
