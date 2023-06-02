@@ -1,19 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { mergeAttributes, Node, nodeInputRule } from '@tiptap/core';
-declare module '@tiptap/core' {
-  interface Commands<ReturnType> {
-    abbr: {
-      /**
-       * Set a video node
-       */
-      setAbbr: (src: string) => ReturnType;
-      /**
-       * Toggle a video
-       */
-      toggleAbbr: (src: string) => ReturnType;
-    };
-  }
-}
 
 export interface VideoOptions {
   url: string;
@@ -74,6 +60,22 @@ const Video = Node.create({
         parseHTML: (element: any) =>
           element.getAttribute('data-video-resolution'),
       },
+      width: {
+        default: '420',
+        renderHTML: (attributes: any) => {
+          return { 'width': parseInt((attributes.videoResolution || '').split('x')[0] || 420 )};
+        },
+        parseHTML: (element: any) =>
+          (element.getAttribute('data-video-resolution') || '').split('x')[0] || 420
+      },
+      height: {
+        default: '700',
+        renderHTML: (attributes: any) => {
+          return { 'height': parseInt((attributes.videoResolution || '').split('x')[1] || 700 )};
+        },
+        parseHTML: (element: any) =>
+          (element.getAttribute('data-video-resolution') || '').split('x')[1] || 700
+      }, 
     };
   },
 
