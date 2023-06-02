@@ -1,9 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import {
-  mergeAttributes,
-  Node,
-  nodeInputRule,
-} from '@tiptap/core'
+import { mergeAttributes, Node, nodeInputRule } from '@tiptap/core';
 declare module '@tiptap/core' {
   interface Commands<ReturnType> {
     abbr: {
@@ -26,29 +22,27 @@ export interface VideoOptions {
   HTMLAttributes: Record<string, any>;
 }
 
-
 declare module '@tiptap/core' {
   interface Commands<ReturnType> {
     video: {
       /**
        * Set a video node
        */
-      setVideo: (src: string) => ReturnType,
+      setVideo: (src: string) => ReturnType;
       /**
        * Toggle a video
        */
-      toggleVideo: (src: string) => ReturnType,
-    }
+      toggleVideo: (src: string) => ReturnType;
+    };
   }
 }
 
-const VIDEO_INPUT_REGEX = /!\[(.+|:?)]\((\S+)(?:(?:\s+)["'](\S+)["'])?\)/
-
+const VIDEO_INPUT_REGEX = /!\[(.+|:?)]\((\S+)(?:(?:\s+)["'](\S+)["'])?\)/;
 
 const Video = Node.create({
   name: 'video',
 
-  group: "block",
+  group: 'block',
 
   addAttributes() {
     return {
@@ -59,19 +53,27 @@ const Video = Node.create({
       },
       documentId: {
         default: '',
-        renderHTML: (attributes: any) => { return {'data-document-id': attributes.documentId}},
+        renderHTML: (attributes: any) => {
+          return { 'data-document-id': attributes.documentId };
+        },
         parseHTML: (element: any) => element.getAttribute('data-document-id'),
       },
       isCaptation: {
         default: false,
-        renderHTML: (attributes: any) => { return {'data-document-is-captation': attributes.isCaptation}},
-        parseHTML: (element: any) => element.getAttribute('data-document-is-captation'),
+        renderHTML: (attributes: any) => {
+          return { 'data-document-is-captation': attributes.isCaptation };
+        },
+        parseHTML: (element: any) =>
+          element.getAttribute('data-document-is-captation'),
       },
       videoResolution: {
         default: '404x720',
-        renderHTML: (attributes: any) => { return {'data-video-resolution': attributes.videoResolution}},
-        parseHTML: (element: any) => element.getAttribute('data-video-resolution'),
-      }
+        renderHTML: (attributes: any) => {
+          return { 'data-video-resolution': attributes.videoResolution };
+        },
+        parseHTML: (element: any) =>
+          element.getAttribute('data-video-resolution'),
+      },
     };
   },
 
@@ -79,24 +81,34 @@ const Video = Node.create({
     return [
       {
         tag: 'video',
-        getAttrs: (el: any) => ({ src: (el as HTMLVideoElement).getAttribute('src') }),
+        getAttrs: (el: any) => ({
+          src: (el as HTMLVideoElement).getAttribute('src'),
+        }),
       },
-    ]
+    ];
   },
 
   renderHTML({ HTMLAttributes }) {
     return [
       'video',
       mergeAttributes(this.options.HTMLAttributes, HTMLAttributes),
-      ['source', HTMLAttributes]
-    ]
+      ['source', HTMLAttributes],
+    ];
   },
 
   addCommands() {
     return {
-      setVideo: (src: string) => ({ commands }) => commands.insertContent(`<video controls="true" style="width: 100%" src="${src}" />`),
+      setVideo:
+        (src: string) =>
+        ({ commands }) =>
+          commands.insertContent(
+            `<video controls="true" style="width: 100%" src="${src}" />`,
+          ),
 
-      toggleVideo: () => ({ commands }) => commands.toggleNode(this.name, 'paragraph'),
+      toggleVideo:
+        () =>
+        ({ commands }) =>
+          commands.toggleNode(this.name, 'paragraph'),
     };
   },
 
@@ -106,12 +118,12 @@ const Video = Node.create({
         find: VIDEO_INPUT_REGEX,
         type: this.type,
         getAttributes: (match) => {
-          const [,, src] = match
+          const [, , src] = match;
 
-          return { src }
+          return { src };
         },
-      })
-    ]
+      }),
+    ];
   },
 });
 
