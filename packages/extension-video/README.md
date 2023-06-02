@@ -1,4 +1,4 @@
-# extension-abbr
+# extension-video
 
 A fresh Tiptap extension.
 
@@ -7,17 +7,17 @@ A fresh Tiptap extension.
 With `npm`:
 
 ```bash
-npm install extension-abbr
+npm install extension-video
 ```
 
 With `yarn`:
 
 ```bash
-yarn add extension-abbr
+yarn add extension-video
 ```
 
 With `pnpm`:
 
 ```bash
-pnpm add extension-abbr
+pnpm add extension-video
 ```
