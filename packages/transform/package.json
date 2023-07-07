@@ -31,7 +31,8 @@
     "format": "pnpm run format:write && pnpm run format:check",
     "format:check": "prettier --check 'src/**/*.ts'",
     "format:write": "prettier --write 'src/**/*.ts'",
-    "lint": "eslint src --ext ts --report-unused-disable-directives --max-warnings 0"
+    "lint": "eslint src --ext ts --report-unused-disable-directives --max-warnings 0",
+    "fix": "eslint src --fix --ext ts --report-unused-disable-directives --max-warnings 0"
   },
   "dependencies": {
     "@tiptap/core": "2.0.3",

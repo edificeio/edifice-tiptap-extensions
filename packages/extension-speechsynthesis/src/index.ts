@@ -1,3 +1,3 @@
-import {SpeechSynthesis} from './SpeechSynthesis'
+import { SpeechSynthesis } from './SpeechSynthesis';
 
-export default SpeechSynthesis
+export default SpeechSynthesis;

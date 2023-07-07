@@ -4,5 +4,5 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
   rules: {},
-  ignorePatterns: ['.eslintrc.cjs', 'prettier.config.cjs'],
+  ignorePatterns: ['.eslintrc.cjs', 'prettier.config.cjs', 'dist'],
 };
