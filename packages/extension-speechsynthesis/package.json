@@ -1,5 +1,5 @@
 {
-  "name": "@rte-content-converter/extension-speechsynthesis",
+  "name": "@edifice-tiptap-extensions/extension-speechsynthesis",
   "version": "1.0.0",
   "description": "Rich Text Editor Voice Transcription Extension",
   "main": "dist/index.cjs",

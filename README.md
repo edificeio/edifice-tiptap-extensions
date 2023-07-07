@@ -1,6 +1,6 @@
 # Rich Text Editor Content Converter
 
-![npm](https://img.shields.io/npm/v/rte-content-converter?style=flat-square)
+![npm](https://img.shields.io/npm/v/edifice-tiptap-extensions?style=flat-square)
 
 ## Prerequisites
 
@@ -36,15 +36,15 @@ turbo format
 You can create a new extension by copying an existing one.
 
 ```bash
-turbo gen workspace --copy --name @rte-content-converter/extension-[name]
+turbo gen workspace --copy --name @edifice-tiptap-extensions/extension-[name]
 ```
 
 Follow the prompts:
 
 - What type of workspace should be added? > Choose `package`
-- Which workspace should "@rte-content-converter/xxx" start from? > `Select` one extension
-- Where should "@rte-content-converter/extension-[name]" be added? > `Enter`
-- Add workspace dependencies to "@rte-content-converter/extension-abbr"? Choose `no`
+- Which workspace should "@edifice-tiptap-extensions/xxx" start from? > `Select` one extension
+- Where should "@edifice-tiptap-extensions/extension-[name]" be added? > `Enter`
+- Add workspace dependencies to "@edifice-tiptap-extensions/extension-abbr"? Choose `no`
 
 It will copy the template from an existing extension to a new folder. You can now modify everything according to your needs.
 

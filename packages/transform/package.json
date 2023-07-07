@@ -1,15 +1,15 @@
 {
-  "name": "@rte-content-converter/transform",
+  "name": "@edifice-tiptap-extensions/transform",
   "version": "1.0.0",
   "private": false,
   "description": "Rich Text Editor Transform",
-  "homepage": "https://github.com/opendigitaleducation/rte-content-converter",
+  "homepage": "https://github.com/opendigitaleducation/edifice-tiptap-extensions",
   "bugs": {
-    "url": "https://github.com/opendigitaleducation/rte-content-converter/issues"
+    "url": "https://github.com/opendigitaleducation/edifice-tiptap-extensions/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/opendigitaleducation/rte-content-converter.git"
+    "url": "git+https://github.com/opendigitaleducation/edifice-tiptap-extensions.git"
   },
   "license": "AGPL-3.0",
   "author": "Open Digital Education",

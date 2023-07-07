@@ -1,5 +1,5 @@
 {
-  "name": "@rte-content-converter/extension-video",
+  "name": "@edifice-tiptap-extensions/extension-video",
   "version": "1.0.0",
   "description": "Rich Text Editor Video Extension",
   "main": "dist/index.cjs",

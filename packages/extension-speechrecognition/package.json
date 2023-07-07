@@ -1,5 +1,5 @@
 {
-  "name": "@rte-content-converter/extension-speechrecognition",
+  "name": "@edifice-tiptap-extensions/extension-speechrecognition",
   "version": "1.0.0",
   "description": "Rich Text Editor Speech Recognition Extension",
   "main": "dist/index.cjs",

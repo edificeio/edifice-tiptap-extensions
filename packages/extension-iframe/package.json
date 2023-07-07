@@ -1,5 +1,5 @@
 {
-  "name": "@rte-content-converter/extension-iframe",
+  "name": "@edifice-tiptap-extensions/extension-iframe",
   "version": "1.0.0",
   "description": "Rich Text Editor Video Extension",
   "main": "dist/index.cjs",

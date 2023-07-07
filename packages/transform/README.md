@@ -1,6 +1,6 @@
 # Rich Text Editor Content Converter
 
-![npm](https://img.shields.io/npm/v/rte-content-converter?style=flat-square)
+![npm](https://img.shields.io/npm/v/edifice-tiptap-extensions?style=flat-square)
 
 ## Prerequisites
 
