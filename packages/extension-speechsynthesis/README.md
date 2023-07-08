@@ -1,5 +1,8 @@
 # extension-speechsynthesis
 
+![npm](https://img.shields.io/npm/v/@edifice-tiptap-extensions/extension-speechsynthesis?style=flat-square)
+![bundlephobia](https://img.shields.io/bundlephobia/min/@edifice-tiptap-extensions/extension-speechsynthesis?style=flat-square)
+
 A fresh Tiptap extension.
 
 ## Installation
@@ -7,17 +10,17 @@ A fresh Tiptap extension.
 With `npm`:
 
 ```bash
-npm install extension-speechsynthesis
+npm install @edifice-tiptap-extensions/extension-speechsynthesis
 ```
 
 With `yarn`:
 
 ```bash
-yarn add extension-speechsynthesis
+yarn add @edifice-tiptap-extensions/extension-speechsynthesis
 ```
 
 With `pnpm`:
 
 ```bash
-pnpm add extension-speechsynthesis
+pnpm add @edifice-tiptap-extensions/extension-speechsynthesis
 ```

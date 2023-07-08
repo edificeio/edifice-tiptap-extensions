@@ -1,5 +1,8 @@
 # extension-video
 
+![npm](https://img.shields.io/npm/v/@edifice-tiptap-extensions/extension-video?style=flat-square)
+![bundlephobia](https://img.shields.io/bundlephobia/min/@edifice-tiptap-extensions/extension-video?style=flat-square)
+
 A fresh Tiptap extension.
 
 ## Installation
@@ -7,17 +10,17 @@ A fresh Tiptap extension.
 With `npm`:
 
 ```bash
-npm install extension-video
+npm install @edifice-tiptap-extensions/extension-video
 ```
 
 With `yarn`:
 
 ```bash
-yarn add extension-video
+yarn add @edifice-tiptap-extensions/extension-video
 ```
 
 With `pnpm`:
 
 ```bash
-pnpm add extension-video
+pnpm add @edifice-tiptap-extensions/extension-video
 ```

@@ -1,6 +1,4 @@
-# Rich Text Editor Content Converter
-
-![npm](https://img.shields.io/npm/v/edifice-tiptap-extensions?style=flat-square)
+# Edifice Tiptap Extensions
 
 ## Prerequisites
 
@@ -19,10 +17,16 @@ pnpm install
 turbo build
 ```
 
-### Lint
+### Eslint Lint
 
 ```bash
 turbo lint
+```
+
+### Eslint Fix
+
+```bash
+turbo fix
 ```
 
 ### Prettier

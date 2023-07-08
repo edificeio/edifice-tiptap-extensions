@@ -1,5 +1,8 @@
 # extension-speechrecognition
 
+![npm](https://img.shields.io/npm/v/@edifice-tiptap-extensions/extension-speechrecognition?style=flat-square)
+![bundlephobia](https://img.shields.io/bundlephobia/min/@edifice-tiptap-extensions/extension-speechrecognition?style=flat-square)
+
 A fresh Tiptap extension.
 
 ## Installation
@@ -7,17 +10,17 @@ A fresh Tiptap extension.
 With `npm`:
 
 ```bash
-npm install extension-speechrecognition
+npm install @edifice-tiptap-extensions/extension-speechrecognition
 ```
 
 With `yarn`:
 
 ```bash
-yarn add extension-speechrecognition
+yarn add @edifice-tiptap-extensions/extension-speechrecognition
 ```
 
 With `pnpm`:
 
 ```bash
-pnpm add extension-speechrecognition
+pnpm add @edifice-tiptap-extensions/extension-speechrecognition
 ```
