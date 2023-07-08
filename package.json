@@ -2,7 +2,7 @@
   "name": "edifice-tiptap-extensions",
   "version": "1.0.0",
   "private": true,
-  "description": "Rich Text Editor Content Converter",
+  "description": "Edifice Monorepo Tiptap Extensions",
   "homepage": "https://github.com/opendigitaleducation/edifice-tiptap-extensions",
   "bugs": {
     "url": "https://github.com/opendigitaleducation/edifice-tiptap-extensions/issues"
@@ -12,7 +12,7 @@
     "url": "git+https://github.com/opendigitaleducation/edifice-tiptap-extensions.git"
   },
   "license": "AGPL-3.0",
-  "author": "Open Digital Education",
+  "author": "Edifice",
   "type": "module",
   "scripts": {
     "build": "turbo build",
@@ -24,10 +24,11 @@
     "publish-packages": "turbo run build && changeset version && changeset publish"
   },
   "dependencies": {
-    "semantic-release-monorepo": "^7.0.5"
+    "semantic-release-monorepo": "7.0.5"
   },
   "devDependencies": {
-    "@turbo/gen": "^1.10.7",
+    "@semantic-release/changelog": "6.0.3",
+    "@turbo/gen": "1.10.7",
     "@types/node": "20.2.5",
     "@typescript-eslint/eslint-plugin": "5.59.0",
     "@typescript-eslint/parser": "5.59.0",
@@ -35,7 +36,7 @@
     "husky": "8.0.3",
     "prettier": "2.8.8",
     "semantic-release": "20.1.0",
-    "turbo": "^1.10.7",
+    "turbo": "1.10.7",
     "typescript": "5.0.2",
     "vite": "4.3.9",
     "vite-plugin-dts": "2.3.0"
