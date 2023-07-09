@@ -9,14 +9,14 @@ importers:
   .:
     dependencies:
       semantic-release-monorepo:
-        specifier: ^7.0.5
+        specifier: 7.0.5
         version: 7.0.5(semantic-release@20.1.0)
     devDependencies:
       '@semantic-release/changelog':
-        specifier: ^6.0.3
+        specifier: 6.0.3
         version: 6.0.3(semantic-release@20.1.0)
       '@turbo/gen':
-        specifier: ^1.10.7
+        specifier: 1.10.7
         version: 1.10.7(@types/node@20.2.5)(typescript@5.0.2)
       '@types/node':
         specifier: 20.2.5
@@ -40,7 +40,7 @@ importers:
         specifier: 20.1.0
         version: 20.1.0
       turbo:
-        specifier: ^1.10.7
+        specifier: 1.10.7
         version: 1.10.7
       typescript:
         specifier: 5.0.2
