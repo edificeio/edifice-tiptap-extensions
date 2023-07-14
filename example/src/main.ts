@@ -1,11 +1,13 @@
+// @ts-nocheck
+
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
-import { htmlToJson, jsonToHtml } from '../../src/index';
+import { htmlToJson, jsonToHtml } from '@edifice-tiptap-extensions/transform';
 
 import Document from '@tiptap/extension-document';
 import Paragraph from '@tiptap/extension-paragraph';
 import Text from '@tiptap/extension-text';
 import Bold from '@tiptap/extension-bold';
-import { Abbr } from '../../extensions/extension-abbr/src/index';
+import { Abbr } from '@edifice-tiptap-extensions/extension-abbr';
 
 const html = '<p>Example <strong>Text</strong> <abbr>HTML</abbr></p>';
 
