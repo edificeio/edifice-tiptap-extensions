@@ -15,7 +15,7 @@
   "author": "Edifice",
   "type": "module",
   "scripts": {
-    "build": "turbo build",
+    "build": "turbo build --filter=./packages/**",
     "lint": "turbo lint",
     "fix": "turbo fix",
     "format": "turbo format",
