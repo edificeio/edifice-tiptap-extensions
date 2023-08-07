@@ -27,7 +27,6 @@
     "semantic-release-monorepo": "7.0.5"
   },
   "devDependencies": {
-    "@semantic-release/changelog": "6.0.3",
     "@turbo/gen": "1.10.7",
     "@types/node": "20.2.5",
     "@typescript-eslint/eslint-plugin": "5.59.0",
