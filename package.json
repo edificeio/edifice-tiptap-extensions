@@ -16,12 +16,11 @@
   "type": "module",
   "scripts": {
     "build": "turbo build --filter=./packages/**",
-    "lint": "turbo lint",
     "fix": "turbo fix",
     "format": "turbo format",
+    "lint": "turbo lint",
     "pre-commit": "pnpm lint && pnpm format",
-    "prepare": "husky install",
-    "publish-packages": "turbo run build && changeset version && changeset publish"
+    "prepare": "husky install"
   },
   "dependencies": {
     "semantic-release-monorepo": "7.0.5"

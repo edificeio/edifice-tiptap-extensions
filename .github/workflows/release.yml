@@ -1,8 +1,10 @@
 name: Semantic release
-'on':
+on:
   push:
     branches:
       - main
+  pull_request:
+    branches:
       - develop
       - develop*
 permissions:
@@ -43,7 +45,6 @@ jobs:
 
       - run: pnpm install --no-frozen-lockfile
       - run: pnpm build
-      # - run: npx semantic-release
       - run: pnpm -r --workspace-concurrency=1 exec -- npx --no-install semantic-release -e semantic-release-monorepo
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
