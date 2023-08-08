@@ -2,7 +2,14 @@
   "$schema": "https://turbo.build/schema.json",
   "pipeline": {
     "build": {
-      "outputs": ["dist/**"]
+      "outputs": [
+        "dist/**"
+      ]
+    },
+    "release": {
+      "outputs": [
+        "dist/**"
+      ]
     },
     "lint": {},
     "fix": {},
