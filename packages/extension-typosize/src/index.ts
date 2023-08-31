@@ -1,3 +1,3 @@
-import TypoSize from './TypoSize';
+import TypoSize, { TypoSizeLevel } from './TypoSize';
 
-export { TypoSize };
+export { TypoSize, TypoSizeLevel };
