@@ -34,7 +34,11 @@ const Attachment = Node.create<AttachmentOptions>({
   },
 
   renderHTML({ HTMLAttributes }) {
-    return ['div', this.options.HTMLAttributes, ['a', HTMLAttributes]];
+    return [
+      'div',
+      this.options.HTMLAttributes,
+      ['a', HTMLAttributes, HTMLAttributes.name],
+    ];
   },
 
   addAttributes() {
