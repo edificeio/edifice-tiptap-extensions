@@ -25,7 +25,7 @@ const MathJaxNode = Node.create({
         parseHTML: (element: any) => {
           const equationNode = [...element.childNodes]
             .filter(child => child.nodeType === 3)
-            .filter(child => child.data.indexOf('begin{equation') >= 0)[0]
+            .filter(child => child.nodeValue.indexOf('begin{equation') >= 0)[0]
           if (equationNode) {
             return equationNode.nodeValue
           } else {
