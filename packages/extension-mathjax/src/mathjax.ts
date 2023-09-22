@@ -23,23 +23,26 @@ const MathJaxNode = Node.create({
       equation: {
         default: null,
         parseHTML: (element: any) => {
-          const equationNode = [...element.childNodes]
-            .filter(child => child.nodeType === 3)
-            .filter(child => child.nodeValue.indexOf('begin{equation') >= 0)[0]
-          if (equationNode) {
-            return equationNode.nodeValue
-          } else {
-            return null;
-          }
+          const children = [...element.childNodes]
+          const textNodes = children.filter(child => child.nodeType === 3)
+          return textNodes.length > 0 ? textNodes[textNodes.length - 1].nodeValue : null;
         }
       }
     }
   },
 
   renderHTML({ HTMLAttributes }) {
-    const equation = (HTMLAttributes.equation || '')
+    let equation = (HTMLAttributes.equation || '')
       .replaceAll(/\\begin{equation}\s*\n?\s*{/mg, '$')
       .replaceAll(/}\n?\s*\\end{equation}/mg, '$');
+    if (equation.length > 0) {
+      if (equation.charAt(0) !== '$') {
+        equation = `$${equation}`
+      }
+      if (equation.charAt(equation.length - 1) !== '$') {
+        equation = `${equation}$`
+      }
+    }
     return ['span', {}, equation];
   },
 })
