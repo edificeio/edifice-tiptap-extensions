@@ -35,8 +35,8 @@ const MathJaxNode = Node.create({
     let equation = (HTMLAttributes.equation || '')
       // Get what is between \begin{equation}{... ...}\end{equation}
       // Or between  \begin{equation}... ...\end{equation} without enclosing brackets
-      .replaceAll(/\\begin{equation}\s*\n?\s*{(.+?)}\n?\s*?\\end{equation}/mg, '$\\$1$')
-      .replaceAll(/\\begin{equation}\s*\n?\s*(.+?)\n?\s*?\\end{equation}/mg, '$\\$1$');
+      .replaceAll(/\\begin{equation}\s*\n?\s*{(.+?)}\n?\s*?\\end{equation}/mg, '$$$1$$')
+      .replaceAll(/\\begin{equation}\s*\n?\s*(.+?)\n?\s*?\\end{equation}/mg, '$$$1$$');
     if (equation.length > 0) {
       if (equation.charAt(0) !== '$') {
         equation = `$${equation}`
