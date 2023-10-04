@@ -14,7 +14,15 @@ declare module '@tiptap/core' {
       /**
        * Set a video node
        */
-      setVideo: (src: string) => ReturnType;
+      setVideo: (
+        id: string,
+        src: string,
+        isCaptation: boolean,
+        width?: number,
+        height?: number,
+        controls?: boolean,
+        controlslist?: string,
+      ) => ReturnType;
       /**
        * Toggle a video
        */
@@ -109,11 +117,29 @@ const Video = Node.create({
   addCommands() {
     return {
       setVideo:
-        (src: string) =>
-        ({ commands }) =>
-          commands.insertContent(
-            `<video controls="true" style="width: 100%" src="${src}" />`,
-          ),
+        (
+          id: string,
+          src: string,
+          isCaptation: boolean,
+          width = 350,
+          height = 219,
+          controls = true,
+          controlslist = 'nodownload',
+        ) =>
+        ({ editor }) => {
+          return editor.commands.insertContentAt(
+            editor.view.state.selection,
+            `<video 
+              controls="${controls}" 
+              controlslist="${controlslist}"
+              src="${src}" 
+              width="${width}"
+              height="${height}"
+              data-document-id="${id}" 
+              data-document-is-captation="${isCaptation}"
+              data-video-resolution="${width}x${height}" />`,
+          );
+        },
 
       toggleVideo:
         () =>
