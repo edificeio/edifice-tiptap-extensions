@@ -36,16 +36,20 @@ const Attachment = Node.create<AttachmentOptions>({
   renderHTML({ HTMLAttributes }) {
     const links = HTMLAttributes.links;
 
-    const renderedLinks = links.map(el => {
-      return ['a', {
-        name: el.name,
-        href: el.href,
-        documentId: el.documentId,
-        dataContentType: el.dataContentType
-      }, el.name];
+    const renderedLinks = links.map((el) => {
+      return [
+        'a',
+        {
+          name: el.name,
+          href: el.href,
+          documentId: el.documentId,
+          dataContentType: el.dataContentType,
+        },
+        el.name,
+      ];
     });
 
-  return ['div', this.options.HTMLAttributes, ...renderedLinks]; 
+    return ['div', this.options.HTMLAttributes, ...renderedLinks];
   },
 
   addAttributes() {
@@ -55,14 +59,16 @@ const Attachment = Node.create<AttachmentOptions>({
         parseHTML: (element) => {
           const links = element.getElementsByTagName('a');
           const parsedLinks = [];
-  
+
           for (let i = 0; i < links.length; i++) {
             const link = links[i];
             const href = link.getAttribute('href');
             const name = link.textContent;
-            const documentId = link.getAttribute('data-document-id') || href.match(/([^/]+$)/)[0];
+            const documentId =
+              link.getAttribute('data-document-id') ||
+              href.match(/([^/]+$)/)[0];
             const dataContentType = link.getAttribute('data-content-type');
-  
+
             parsedLinks.push({
               href,
               name,
@@ -70,12 +76,12 @@ const Attachment = Node.create<AttachmentOptions>({
               dataContentType,
             });
           }
-  
+
           return parsedLinks;
         },
         renderHTML: (attributes) => {
           return {
-            links: attributes.links.map(link => ({
+            links: attributes.links.map((link) => ({
               href: link.href,
               name: link.name,
               documentId: link.documentId,
@@ -86,7 +92,6 @@ const Attachment = Node.create<AttachmentOptions>({
       },
     };
   },
-  
 
   addCommands() {
     return {
