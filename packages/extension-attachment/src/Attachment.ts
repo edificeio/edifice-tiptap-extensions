@@ -34,84 +34,60 @@ const Attachment = Node.create<AttachmentOptions>({
   },
 
   renderHTML({ HTMLAttributes }) {
-    return [
-      'div',
-      this.options.HTMLAttributes,
-      ['a', HTMLAttributes, HTMLAttributes.name],
-    ];
+    const links = HTMLAttributes.links;
+
+    const renderedLinks = links.map((el) => {
+      return [
+        'a',
+        {
+          name: el.name,
+          href: el.href,
+          documentId: el.documentId,
+          dataContentType: el.dataContentType,
+        },
+        el.name,
+      ];
+    });
+
+    return ['div', this.options.HTMLAttributes, ...renderedLinks];
   },
 
   addAttributes() {
     return {
-      name: {
-        default: null,
+      links: {
+        default: [],
         parseHTML: (element) => {
-          const el = element.getElementsByTagName('a');
-          let text = '';
-          const nodes = el[0].childNodes;
-          for (let i = 0; i < nodes.length; i++) {
-            if (nodes[i].nodeType === 3) {
-              text += nodes[i].nodeValue;
-            }
-          }
-          return text;
-        },
+          const links = element.getElementsByTagName('a');
+          const parsedLinks = [];
 
-        renderHTML: (attributes) => {
-          return { name: attributes.name };
-        },
-      },
-      href: {
-        default: null,
-        parseHTML: (el) => {
-          const elementHref = el.getElementsByTagName('a');
-          return elementHref[0].getAttribute('href');
-        },
-        renderHTML: (attrs) => ({ href: attrs.href }),
-      },
-      documentId: {
-        default: null,
-        parseHTML: (element) => {
-          let documentId = null;
-          const elementHref = element.getElementsByTagName('a');
-          if (elementHref[0].getAttribute('data-document-id')) {
-            documentId = elementHref[0].getAttribute('data-document-id');
-          } else {
-            const href = elementHref[0].getAttribute('href');
-            const pattern = /([^/]+$)/;
-            documentId = href.match(pattern)[0];
+          for (let i = 0; i < links.length; i++) {
+            const link = links[i];
+            const href = link.getAttribute('href');
+            const name = link.textContent;
+            const documentId =
+              link.getAttribute('data-document-id') ||
+              href.match(/([^/]+$)/)[0];
+            const dataContentType = link.getAttribute('data-content-type');
+
+            parsedLinks.push({
+              href,
+              name,
+              documentId,
+              dataContentType,
+            });
           }
 
-          return documentId;
+          return parsedLinks;
         },
         renderHTML: (attributes) => {
-          return { 'data-document-id': attributes.documentId };
-        },
-      },
-      dataContentType: {
-        default: null,
-        parseHTML: (el) => {
-          const elementHref = el.getElementsByTagName('a');
-          return elementHref[0].getAttribute('data-content-type');
-        },
-        renderHTML: (attributes) => {
-          return { 'data-content-type': attributes.dataContentType };
-        },
-      },
-      thumbnails: {
-        default: null,
-        parseHTML: (el) => {
-          const elementA = el.getElementsByTagName('a');
-          const elementThumbnail =
-            elementA[0].getElementsByTagName('thumbnail');
-          const objectThumbnail = [];
-          for (let i = 0; i < elementThumbnail.length; i++) {
-            const objectVide = { resolution: '', idThumbnail: '' };
-            objectVide.resolution =
-              elementThumbnail[i].getAttribute('resolution');
-            objectVide.idThumbnail = elementThumbnail[i].textContent;
-            objectThumbnail.push(objectVide);
-          }
+          return {
+            links: attributes.links.map((link) => ({
+              href: link.href,
+              name: link.name,
+              documentId: link.documentId,
+              dataContentType: link.dataContentType,
+            })),
+          };
         },
       },
     };
