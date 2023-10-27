@@ -10,12 +10,19 @@ declare module '@tiptap/core' {
     SpeechRecognition: {
       startSpeechRecognition: () => ReturnType;
       stopSpeechRecognition: () => ReturnType;
+      isSpeechRecognitionStarted: () => boolean;
     };
   }
 }
 
 class SR_Node<O = any, S = any> extends Node<O, S> {
-  recognition: SpeechRecognition;
+  protected constructor() {
+    super();
+  }
+
+  recognition: SpeechRecognition | undefined;
+  readonly isStarted: boolean = false;
+
   static create<O = any, S = any>(config?: any) {
     return Node.create(config) as SR_Node<O, S>;
   }
@@ -28,6 +35,16 @@ const SpeechRecognition = SR_Node.create<SpeechRecognitionOptions>({
     return {
       lang: 'fr-FR',
     };
+  },
+
+  onCreate() {
+    if (
+      !('SpeechRecognition' in window || 'webkitSpeechRecognition' in window)
+    ) {
+      console.warn(
+        '"@edifice-tiptap-extensions/extension-speechrecognition" requires a browser supporting the SpeechRecognition API".',
+      );
+    }
   },
 
   addCommands() {
@@ -49,7 +66,7 @@ const SpeechRecognition = SR_Node.create<SpeechRecognitionOptions>({
           this.recognition.contentLength = this.editor.getText().length + 1;
           this.recognition.quoicoubeh = null;
 
-          this.recognition.onresult = (event) => {
+          this.recognition.onresult = (event: SpeechRecognitionEvent) => {
             // If the length of the content of the editor is less than the length of the recognized content, redefine the variable contentLength taking into account the length of the recognized content
             if (
               this.recognition.contentLength >
@@ -95,6 +112,21 @@ const SpeechRecognition = SR_Node.create<SpeechRecognitionOptions>({
             }
           };
 
+          this.recognition.onerror = (event: SpeechRecognitionErrorEvent) => {
+            // TODO create a "feedback" tiptap extension, to display user friendly error messages ?
+            console.log(
+              `[@edifice-tiptap-extensions/extension-speechrecognition][error][${event.error}]: ${event.message}`,
+            );
+          };
+
+          this.recognition.onstart = () => {
+            this.isStarted = true;
+          };
+
+          this.recognition.onend = () => {
+            this.isStarted = false;
+          };
+
           return commands;
         },
 
@@ -106,6 +138,8 @@ const SpeechRecognition = SR_Node.create<SpeechRecognitionOptions>({
           this.recognition.lastResult = '';
           return commands;
         },
+
+      isSpeechRecognitionStarted: () => () => this.isStarted,
     };
   },
 });
