@@ -36,11 +36,11 @@ const MathJaxNode = Node.create({
       // Get what is between \begin{equation}{... ...}\end{equation}
       // Or between  \begin{equation}... ...\end{equation} without enclosing brackets
       .replaceAll(
-        /\\begin{equation}\s*\n?\s*{(.+?)}\n?\s*?\\end{equation}/gm,
+        /(?:\\)?begin{equation}\s*\n?\s*{(.+?)}\n?\s*?(?:\\)?end{equation}/gm,
         '$$$1$$',
       )
       .replaceAll(
-        /\\begin{equation}\s*\n?\s*(.+?)\n?\s*?\\end{equation}/gm,
+        /(?:\\)?begin{equation}\s*\n?\s*(.+?)\n?\s*?(?:\\)?end{equation}/gm,
         '$$$1$$',
       );
     if (equation.length > 0) {
