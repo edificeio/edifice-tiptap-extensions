@@ -26,10 +26,10 @@ declare module '@tiptap/core' {
 }
 
 /**
- * Extends `Link` extension.
+ * Internal links extension.
  * Reproduces the legacy angularJs "linker" directive.
  *
- * Link to internal resources may have `title`, `data-id` and `data-app-prefix` attributes :
+ * Links to internal resources MAY have a `title` and MUST HAVE `data-id` and `data-app-prefix` attributes :
  * `<a href="/blog#/view/35fa4198-blog_id/5e654c71-article_id" data-app-prefix="blog" data-id="35fa4198-blog_id" target="_blank" title="Voir ce billet de blog" class="ng-scope">/blog#/view/35fa4198-57fe-45eb-94f4-a5e4defff305/5e654c71-1e61-4f84-86dc-6fcfaf33f513</a>`
  */
 const Linker = Node.create({
@@ -52,7 +52,7 @@ const Linker = Node.create({
     return {
       openOnClick: true,
       HTMLAttributes: {
-        target: '_blank',
+        target: null,
         title: null,
         class: null,
         'data-id': null,
@@ -83,13 +83,17 @@ const Linker = Node.create({
         default: this.options.HTMLAttributes['data-id'],
       },
       'data-app-prefix': {
-        default: this.options.HTMLAttributes['app-prefix'],
+        default: this.options.HTMLAttributes['data-app-prefix'],
       },
     };
   },
 
   parseHTML() {
-    return [{ tag: 'a[href]:not([href *= "javascript:" i])' }];
+    return [
+      {
+        tag: 'a[href]:not([href *= "javascript:" i])[data-id][data-app-prefix]',
+      },
+    ];
   },
 
   renderHTML({ HTMLAttributes }) {
@@ -114,12 +118,7 @@ const Linker = Node.create({
     return {
       setLinker:
         (attrs) =>
-        ({ editor, commands }) => {
-          const { from, to, empty } = editor.state.selection;
-          // Retrieve selected text, if any
-          const text = empty
-            ? attrs.title
-            : editor.state.doc.textBetween(from, to, ' ');
+        ({ commands }) => {
           // Insert a Linker node with inner text node
           commands.insertContent({
             type: this.name,
@@ -127,7 +126,7 @@ const Linker = Node.create({
             content: [
               {
                 type: 'text',
-                text,
+                text: attrs.title,
               },
             ],
           });
