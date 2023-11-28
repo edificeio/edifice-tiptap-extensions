@@ -10,14 +10,6 @@ export interface ImageOptions {
   sizes: string[];
 }
 
-declare module '@tiptap/core' {
-  interface Commands<ReturnType> {
-    attachment: {
-      setAttachment: (attachment) => ReturnType;
-    };
-  }
-}
-
 const ImageExtend = Image.extend<ImageOptions>({
   name: 'custom-image',
   draggable: true,
