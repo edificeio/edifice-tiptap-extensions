@@ -1,3 +1,4 @@
-import Hyperlink from './Hyperlink';
+import Hyperlink, { HyperlinkAttributes } from './Hyperlink';
 
 export { Hyperlink };
+export { HyperlinkAttributes };
