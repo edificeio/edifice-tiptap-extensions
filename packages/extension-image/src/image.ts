@@ -32,15 +32,6 @@ const ImageExtend = Image.extend<ImageOptions>({
         default: 'medium',
         rendered: false,
       },
-      href: {
-        default: null,
-        renderHTML: (attributes) => {
-          return {
-            href: parseInt(attributes.href),
-          };
-        },
-        parseHTML: (element) => element.getAttribute('href'),
-      },
       'media-type': {
         default: null,
         renderHTML: (attributes) => {
