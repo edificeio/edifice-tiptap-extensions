@@ -69,7 +69,7 @@ const ImageExtend = Image.extend<ImageOptions>({
         parseHTML: (element) => element.getAttribute('title'),
       },
       width: {
-        default: '350',
+        default: '100%',
         renderHTML: (attributes) => {
           return {
             width: parseInt(attributes.width),
@@ -144,7 +144,7 @@ const ImageExtend = Image.extend<ImageOptions>({
   addCommands() {
     return {
       ...this.parent?.(),
-      setImage:
+      /* setImage:
         (attrs) =>
         ({ tr, dispatch }) => {
           const { selection } = tr;
@@ -155,7 +155,7 @@ const ImageExtend = Image.extend<ImageOptions>({
           }
 
           return true;
-        },
+        }, */
       setAttributes:
         (attributes) =>
         ({ tr, dispatch }) => {

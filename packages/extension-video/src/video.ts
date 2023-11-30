@@ -48,9 +48,9 @@ const Video = Node.create({
       controls: {
         default: true,
         parseHTML: (el: any) => {
-          if ((el as HTMLSpanElement).getAttribute("controls")) {
-            return (el as HTMLSpanElement).getAttribute("controls");
-          } else if ((el as HTMLSpanElement).hasAttribute("controls")) {
+          if ((el as HTMLSpanElement).getAttribute('controls')) {
+            return (el as HTMLSpanElement).getAttribute('controls');
+          } else if ((el as HTMLSpanElement).hasAttribute('controls')) {
             return true;
           } else {
             return false;
@@ -112,10 +112,7 @@ const Video = Node.create({
   },
 
   renderHTML({ HTMLAttributes }) {
-    return [
-      'video',
-      mergeAttributes(HTMLAttributes),
-    ];
+    return ['video', mergeAttributes(HTMLAttributes)];
   },
 
   addCommands() {
