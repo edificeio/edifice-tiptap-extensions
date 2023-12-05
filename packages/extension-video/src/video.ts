@@ -47,6 +47,16 @@ const Video = Node.create({
       },
       controls: {
         default: true,
+        parseHTML: (el: any) => {
+          if ((el as HTMLSpanElement).getAttribute('controls')) {
+            return (el as HTMLSpanElement).getAttribute('controls');
+          } else if ((el as HTMLSpanElement).hasAttribute('controls')) {
+            return true;
+          } else {
+            return false;
+          }
+        },
+        renderHTML: (attrs: any) => ({ controls: attrs.controls }),
       },
       documentId: {
         default: '',
@@ -74,23 +84,18 @@ const Video = Node.create({
       width: {
         renderHTML: (attributes: any) => {
           return {
-            width: parseInt((attributes.videoResolution || '').split('x')[0]),
+            width: parseInt(attributes.width),
           };
         },
-        parseHTML: (element: any) =>
-          (element.getAttribute('data-video-resolution') || '').split('x')[0] ||
-          null,
+        parseHTML: (element) => element.getAttribute('width'),
       },
       height: {
         renderHTML: (attributes: any) => {
           return {
-            height: parseInt(
-              (attributes.videoResolution || '').split('x')[1] || null,
-            ),
+            height: parseInt(attributes.height),
           };
         },
-        parseHTML: (element: any) =>
-          (element.getAttribute('data-video-resolution') || '').split('x')[1],
+        parseHTML: (element) => element.getAttribute('height'),
       },
     };
   },
@@ -107,11 +112,7 @@ const Video = Node.create({
   },
 
   renderHTML({ HTMLAttributes }) {
-    return [
-      'video',
-      mergeAttributes(this.options.HTMLAttributes, HTMLAttributes),
-      ['source', HTMLAttributes],
-    ];
+    return ['video', mergeAttributes(HTMLAttributes)];
   },
 
   addCommands() {
