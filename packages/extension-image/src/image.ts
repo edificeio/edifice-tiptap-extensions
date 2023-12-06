@@ -10,6 +10,34 @@ export interface ImageOptions {
   sizes: string[];
 }
 
+interface AttributesProps {
+  width: number | string;
+  height: number | string;
+  size: string;
+}
+
+declare module "@tiptap/core" {
+  interface Commands<ReturnType> {
+    customImage: {
+      setImage: (options: {
+        src: string;
+        alt?: string | undefined;
+        title?: string | undefined;
+        'media-type'?: string;
+      }) => ReturnType;
+      setAttributes: (options: AttributesProps) => ReturnType;
+      setMedia: (options: {
+        "media-type": "img";
+        src: string;
+        alt?: string;
+        title?: string;
+        width?: string;
+        height?: string;
+      }) => ReturnType;
+    };
+  }
+}
+
 const ImageExtend = Image.extend<ImageOptions>({
   name: 'custom-image',
   draggable: true,
@@ -135,7 +163,7 @@ const ImageExtend = Image.extend<ImageOptions>({
   addCommands() {
     return {
       ...this.parent?.(),
-      /* setImage:
+      setImage:
         (attrs) =>
         ({ tr, dispatch }) => {
           const { selection } = tr;
@@ -146,13 +174,15 @@ const ImageExtend = Image.extend<ImageOptions>({
           }
 
           return true;
-        }, */
+        },
       setAttributes:
         (attributes) =>
         ({ tr, dispatch }) => {
           const { selection } = tr;
+
+          const nodeAttrs = tr.doc.nodeAt(tr.selection.from);
           const options = {
-            ...selection.node.attrs,
+            ...nodeAttrs.attrs,
             ...attributes,
           };
           const node = this.type.create(options);
@@ -160,6 +190,8 @@ const ImageExtend = Image.extend<ImageOptions>({
           if (dispatch) {
             tr.replaceRangeWith(selection.from, selection.to, node);
           }
+
+          return true;
         },
     };
   },
