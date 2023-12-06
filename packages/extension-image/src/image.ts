@@ -16,7 +16,7 @@ interface AttributesProps {
   size: string;
 }
 
-declare module "@tiptap/core" {
+declare module '@tiptap/core' {
   interface Commands<ReturnType> {
     customImage: {
       setImage: (options: {
@@ -27,7 +27,7 @@ declare module "@tiptap/core" {
       }) => ReturnType;
       setAttributes: (options: AttributesProps) => ReturnType;
       setMedia: (options: {
-        "media-type": "img";
+        'media-type': 'img';
         src: string;
         alt?: string;
         title?: string;
