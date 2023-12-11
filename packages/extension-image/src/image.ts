@@ -19,20 +19,12 @@ interface AttributesProps {
 declare module '@tiptap/core' {
   interface Commands<ReturnType> {
     customImage: {
-      setImage: (options: {
-        src: string;
-        alt?: string | undefined;
-        title?: string | undefined;
-        'media-type'?: string;
-      }) => ReturnType;
       setAttributes: (options: AttributesProps) => ReturnType;
-      setMedia: (options: {
-        'media-type': 'img';
+      setNewImage: (options: {
+        'media-type': string;
         src: string;
         alt?: string;
         title?: string;
-        width?: string;
-        height?: string;
       }) => ReturnType;
     };
   }
@@ -162,8 +154,7 @@ const ImageExtend = Image.extend<ImageOptions>({
 
   addCommands() {
     return {
-      ...this.parent?.(),
-      setImage:
+      setNewImage:
         (attrs) =>
         ({ tr, dispatch }) => {
           const { selection } = tr;
