@@ -35,8 +35,9 @@ const VIDEO_INPUT_REGEX = /!\[(.+|:?)]\((\S+)(?:(?:\s+)["'](\S+)["'])?\)/;
 
 const Video = Node.create({
   name: 'video',
-
   group: 'block',
+  draggable: true,
+  selectable: true,
 
   addAttributes() {
     return {
