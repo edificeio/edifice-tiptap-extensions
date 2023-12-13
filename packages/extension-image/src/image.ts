@@ -80,7 +80,7 @@ const ImageExtend = Image.extend<ImageOptions>({
         parseHTML: (element) => element.getAttribute('title'),
       },
       width: {
-        default: '100%',
+        default: '350',
         renderHTML: (attributes) => {
           return {
             width: parseInt(attributes.width),
