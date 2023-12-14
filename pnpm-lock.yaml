@@ -134,6 +134,64 @@ importers:
         specifier: ^0.34.1
         version: 0.34.1(rollup@3.29.4)(typescript@5.0.2)
 
+  packages/extension-audio:
+    devDependencies:
+      '@rollup/plugin-babel':
+        specifier: ^6.0.3
+        version: 6.0.4(@babel/core@7.23.2)(rollup@3.29.4)
+      '@rollup/plugin-commonjs':
+        specifier: ^24.0.1
+        version: 24.1.0(rollup@3.29.4)
+      '@tiptap/core':
+        specifier: 2.0.3
+        version: 2.0.3(@tiptap/pm@2.0.3)
+      '@tiptap/pm':
+        specifier: 2.0.3
+        version: 2.0.3(@tiptap/core@2.0.3)
+      rollup:
+        specifier: ^3.17.3
+        version: 3.29.4
+      rollup-plugin-auto-external:
+        specifier: ^2.0.0
+        version: 2.0.0(rollup@3.29.4)
+      rollup-plugin-sourcemaps:
+        specifier: ^0.6.3
+        version: 0.6.3(@types/node@20.2.5)(rollup@3.29.4)
+      rollup-plugin-typescript2:
+        specifier: ^0.34.1
+        version: 0.34.1(rollup@3.29.4)(typescript@5.0.2)
+
+  packages/extension-hyperlink:
+    dependencies:
+      '@tiptap/extension-link':
+        specifier: 2.0.3
+        version: 2.0.3(@tiptap/core@2.0.3)(@tiptap/pm@2.0.3)
+    devDependencies:
+      '@rollup/plugin-babel':
+        specifier: ^6.0.3
+        version: 6.0.4(@babel/core@7.23.2)(rollup@3.29.4)
+      '@rollup/plugin-commonjs':
+        specifier: ^24.0.1
+        version: 24.1.0(rollup@3.29.4)
+      '@tiptap/core':
+        specifier: 2.0.3
+        version: 2.0.3(@tiptap/pm@2.0.3)
+      '@tiptap/pm':
+        specifier: 2.0.3
+        version: 2.0.3(@tiptap/core@2.0.3)
+      rollup:
+        specifier: ^3.17.3
+        version: 3.29.4
+      rollup-plugin-auto-external:
+        specifier: ^2.0.0
+        version: 2.0.0(rollup@3.29.4)
+      rollup-plugin-sourcemaps:
+        specifier: ^0.6.3
+        version: 0.6.3(@types/node@20.2.5)(rollup@3.29.4)
+      rollup-plugin-typescript2:
+        specifier: ^0.34.1
+        version: 0.34.1(rollup@3.29.4)(typescript@5.0.2)
+
   packages/extension-iframe:
     devDependencies:
       '@rollup/plugin-babel':
@@ -161,11 +219,7 @@ importers:
         specifier: ^0.34.1
         version: 0.34.1(rollup@3.29.4)(typescript@5.0.2)
 
-  packages/extension-link:
-    dependencies:
-      '@tiptap/extension-link':
-        specifier: 2.0.3
-        version: 2.0.3(@tiptap/core@2.0.3)(@tiptap/pm@2.0.3)
+  packages/extension-image:
     devDependencies:
       '@rollup/plugin-babel':
         specifier: ^6.0.3
@@ -176,6 +230,12 @@ importers:
       '@tiptap/core':
         specifier: 2.0.3
         version: 2.0.3(@tiptap/pm@2.0.3)
+      '@tiptap/extension-heading':
+        specifier: 2.0.3
+        version: 2.0.3(@tiptap/core@2.0.3)
+      '@tiptap/extension-image':
+        specifier: 2.0.3
+        version: 2.0.3(@tiptap/core@2.0.3)
       '@tiptap/pm':
         specifier: 2.0.3
         version: 2.0.3(@tiptap/core@2.0.3)
@@ -1447,6 +1507,14 @@ packages:
       '@tiptap/core': 2.0.3(@tiptap/pm@2.0.3)
       '@tiptap/pm': 2.0.3(@tiptap/core@2.0.3)
     dev: false
+
+  /@tiptap/extension-image@2.0.3(@tiptap/core@2.0.3):
+    resolution: {integrity: sha512-hS9ZJwz0md07EHsC+o4NuuJkhCZsZn7TuRz/2CvRSj2fWFIz+40CyNAHf/2J0qNugG9ommXaemetsADeEZP9ag==}
+    peerDependencies:
+      '@tiptap/core': ^2.0.0
+    dependencies:
+      '@tiptap/core': 2.0.3(@tiptap/pm@2.0.3)
+    dev: true
 
   /@tiptap/extension-italic@2.1.12(@tiptap/core@2.0.3):
     resolution: {integrity: sha512-/XYrW4ZEWyqDvnXVKbgTXItpJOp2ycswk+fJ3vuexyolO6NSs0UuYC6X4f+FbHYL5VuWqVBv7EavGa+tB6sl3A==}
