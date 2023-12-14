@@ -72,3 +72,4 @@ const Audio = Node.create({
 });
 
 export { Audio };
+export default Audio;
