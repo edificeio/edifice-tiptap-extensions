@@ -20,7 +20,7 @@ const TableCell = TipTapTableCell.extend({
           };
         },
         parseHTML: (element: { style?: { backgroundColor: string } }) => {
-          return element.style?.backgroundColor.replace(/['"]+/g, '');
+          return element.style?.backgroundColor?.replace(/['"]+/g, '');
         },
       },
     };
