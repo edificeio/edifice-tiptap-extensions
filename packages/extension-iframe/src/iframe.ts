@@ -23,6 +23,7 @@ const Iframe = Node.create<IframeOptions>({
   name: 'iframe',
   group: 'block',
   atom: true,
+  draggable: true,
 
   addOptions() {
     return {
@@ -44,6 +45,36 @@ const Iframe = Node.create<IframeOptions>({
       allowfullscreen: {
         default: this.options.allowFullscreen,
         parseHTML: () => this.options.allowFullscreen,
+      },
+      width: {
+        renderHTML: (attributes) => {
+          return attributes.width
+            ? {
+                width: parseInt(attributes.width),
+              }
+            : {};
+        },
+        parseHTML: (element) => element.getAttribute('width'),
+      },
+      height: {
+        renderHTML: (attributes) => {
+          return attributes.height
+            ? {
+                height: parseInt(attributes.height),
+              }
+            : {};
+        },
+        parseHTML: (element) => element.getAttribute('height'),
+      },
+      style: {
+        renderHTML: (attributes) => {
+          return attributes.style
+            ? {
+                style: attributes.style,
+              }
+            : {};
+        },
+        parseHTML: (element) => element.getAttribute('style'),
       },
     };
   },
