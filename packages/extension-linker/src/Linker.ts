@@ -135,15 +135,20 @@ const Linker = Node.create({
 
       unsetLinker:
         () =>
-        ({ state, commands }) => {
+        ({ state, tr }) => {
           // Which Linker node is actually selected ?
           const { node } = state.selection as NodeSelection;
-          // Inner text of this node
-          const innerText = node?.textContent ?? '';
-          // Delete Linker node
-          commands.deleteNode(this.name);
-          // Replace it by the previous inner text
-          commands.insertContent(innerText);
+          // Delete any selected Linker node
+          if (node?.type.name === 'linker') {
+            /* The following does not work as one would expected.
+            commands.deleteNode(this.name);
+            commands.deleteCurrentNode();
+            * Replaced by : */
+            const depth = state.selection.$from.depth;
+            const from = state.selection.$from.before(depth);
+            const to = state.selection.$from.after(depth);
+            tr.delete(from, to).scrollIntoView();
+          }
           return true;
         },
     };
