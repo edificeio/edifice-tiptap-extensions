@@ -14,7 +14,15 @@ declare module '@tiptap/core' {
       /**
        * Set a video node
        */
-      setVideo: (src: string) => ReturnType;
+      setVideo: (
+        id: string,
+        src: string,
+        isCaptation: boolean,
+        width?: number,
+        height?: number,
+        controls?: boolean,
+        controlslist?: string,
+      ) => ReturnType;
       /**
        * Toggle a video
        */
@@ -27,8 +35,9 @@ const VIDEO_INPUT_REGEX = /!\[(.+|:?)]\((\S+)(?:(?:\s+)["'](\S+)["'])?\)/;
 
 const Video = Node.create({
   name: 'video',
-
   group: 'block',
+  draggable: true,
+  selectable: true,
 
   addAttributes() {
     return {
@@ -39,6 +48,16 @@ const Video = Node.create({
       },
       controls: {
         default: true,
+        parseHTML: (el: any) => {
+          if ((el as HTMLSpanElement).getAttribute('controls')) {
+            return (el as HTMLSpanElement).getAttribute('controls');
+          } else if ((el as HTMLSpanElement).hasAttribute('controls')) {
+            return true;
+          } else {
+            return false;
+          }
+        },
+        renderHTML: (attrs: any) => ({ controls: attrs.controls }),
       },
       documentId: {
         default: '',
@@ -66,23 +85,18 @@ const Video = Node.create({
       width: {
         renderHTML: (attributes: any) => {
           return {
-            width: parseInt((attributes.videoResolution || '').split('x')[0]),
+            width: parseInt(attributes.width),
           };
         },
-        parseHTML: (element: any) =>
-          (element.getAttribute('data-video-resolution') || '').split('x')[0] ||
-          null,
+        parseHTML: (element) => element.getAttribute('width'),
       },
       height: {
         renderHTML: (attributes: any) => {
           return {
-            height: parseInt(
-              (attributes.videoResolution || '').split('x')[1] || null,
-            ),
+            height: parseInt(attributes.height),
           };
         },
-        parseHTML: (element: any) =>
-          (element.getAttribute('data-video-resolution') || '').split('x')[1],
+        parseHTML: (element) => element.getAttribute('height'),
       },
     };
   },
@@ -99,21 +113,35 @@ const Video = Node.create({
   },
 
   renderHTML({ HTMLAttributes }) {
-    return [
-      'video',
-      mergeAttributes(this.options.HTMLAttributes, HTMLAttributes),
-      ['source', HTMLAttributes],
-    ];
+    return ['video', mergeAttributes(HTMLAttributes)];
   },
 
   addCommands() {
     return {
       setVideo:
-        (src: string) =>
-        ({ commands }) =>
-          commands.insertContent(
-            `<video controls="true" style="width: 100%" src="${src}" />`,
-          ),
+        (
+          id: string,
+          src: string,
+          isCaptation: boolean,
+          width = 350,
+          height = 219,
+          controls = true,
+          controlslist = 'nodownload',
+        ) =>
+        ({ editor }) => {
+          return editor.commands.insertContentAt(
+            editor.view.state.selection,
+            `<video 
+              controls="${controls}" 
+              controlslist="${controlslist}"
+              src="${src}" 
+              width="${width}"
+              height="${height}"
+              data-document-id="${id}" 
+              data-document-is-captation="${isCaptation}"
+              data-video-resolution="${width}x${height}" />`,
+          );
+        },
 
       toggleVideo:
         () =>
