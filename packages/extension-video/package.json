@@ -2,9 +2,6 @@
   "name": "@edifice-tiptap-extensions/extension-video",
   "version": "1.0.0",
   "description": "Rich Text Editor Video Extension",
-  "main": "dist/index.cjs",
-  "module": "dist/index.js",
-  "types": "dist/index.d.ts",
   "type": "module",
   "exports": {
     ".": {
@@ -12,18 +9,24 @@
       "require": "./dist/index.cjs"
     }
   },
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
   "files": [
-    "dist/*"
+    "dist",
+    "version.txt"
   ],
   "scripts": {
     "build": "pnpm run clean && rollup -c",
     "clean": "rm -rf dist",
     "dev": "pnpm run clean && rollup -c -w",
+    "fix": "eslint src --fix --ext ts --report-unused-disable-directives --max-warnings 0",
     "format": "pnpm run format:write && pnpm run format:check",
     "format:check": "prettier --check 'src/**/*.ts'",
     "format:write": "prettier --write 'src/**/*.ts'",
+    "generate-commit-version": "node ../../scripts/version.cjs",
     "lint": "eslint src --ext ts --report-unused-disable-directives --max-warnings 0",
-    "fix": "eslint src --fix --ext ts --report-unused-disable-directives --max-warnings 0"
+    "release": "pnpm run generate-commit-version && pnpm run build"
   },
   "devDependencies": {
     "@rollup/plugin-babel": "^6.0.3",

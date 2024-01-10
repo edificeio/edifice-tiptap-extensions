@@ -23,16 +23,19 @@
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "files": [
-    "dist/*"
+    "dist",
+    "version.txt"
   ],
   "scripts": {
     "build": "vite build",
     "dev": "vite",
+    "fix": "eslint src --fix --ext ts --report-unused-disable-directives --max-warnings 0",
     "format": "pnpm run format:write && pnpm run format:check",
     "format:check": "prettier --check 'src/**/*.ts'",
     "format:write": "prettier --write 'src/**/*.ts'",
+    "generate-commit-version": "node ../../scripts/version.cjs",
     "lint": "eslint src --ext ts --report-unused-disable-directives --max-warnings 0",
-    "fix": "eslint src --fix --ext ts --report-unused-disable-directives --max-warnings 0"
+    "release": "pnpm run generate-commit-version && pnpm run build"
   },
   "dependencies": {
     "@tiptap/core": "2.0.3",
