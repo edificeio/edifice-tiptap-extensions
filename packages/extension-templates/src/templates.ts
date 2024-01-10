@@ -41,19 +41,25 @@ const TemplatesNode = Node.create({
   renderHTML({ HTMLAttributes }) {
     const columns = HTMLAttributes.columns || [];
     const titles = columns.map((column) => {
-      if(column.title) {
-        return ["td", {'class': 'title'}, ["h2", {}, column.title]];
+      if (column.title) {
+        return ['td', { class: 'title' }, ['h2', {}, column.title]];
       } else {
-        return ["td", {'class': 'image', rowspan: 2}, ["img", { src: column.image }]];
+        return [
+          'td',
+          { class: 'image', rowspan: 2 },
+          ['img', { src: column.image }],
+        ];
       }
     });
-    const cells = columns.filter(c => !!c.content).map(column => {
-      return ["td", {'class': 'text'}, column.content];
-    });
+    const cells = columns
+      .filter((c) => !!c.content)
+      .map((column) => {
+        return ['td', { class: 'text' }, column.content];
+      });
     return [
-      "table",
-      {'class': 'template'},
-      ["tbody", {}, ["tr", {}, ...titles], ["tr", {}, ...cells]]
+      'table',
+      { class: 'template' },
+      ['tbody', {}, ['tr', {}, ...titles], ['tr', {}, ...cells]],
     ];
   },
 });
