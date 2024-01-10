@@ -21,7 +21,6 @@ declare module '@tiptap/core' {
     customImage: {
       setAttributes: (options: AttributesProps) => ReturnType;
       setNewImage: (options: {
-        'media-type': string;
         src: string;
         alt?: string;
         title?: string;
@@ -51,15 +50,6 @@ const ImageExtend = Image.extend<ImageOptions>({
       size: {
         default: 'medium',
         rendered: false,
-      },
-      'media-type': {
-        default: 'img',
-        renderHTML: (attributes) => {
-          return {
-            ['media-type']: attributes['media-type'],
-          };
-        },
-        parseHTML: () => 'img',
       },
       alt: {
         renderHTML: (attributes) => {
@@ -104,27 +94,15 @@ const ImageExtend = Image.extend<ImageOptions>({
         tag: 'img[src]:not([src^="data:"])',
         getAttrs: (el) => ({
           src: (el as HTMLImageElement).getAttribute('src'),
-          'media-type': 'img',
         }),
       },
     ];
   },
 
   renderHTML({ HTMLAttributes }) {
-    console.log('HTMLAttributes');
-    const { 'media-type': mediaType } = HTMLAttributes;
-
-    if (!mediaType) {
-      console.error(
-        'TiptapMediaExtension-renderHTML method: Media Type not set, going default with image',
-      );
-    }
-
     return [
       'img',
-      mergeAttributes(this.options.HTMLAttributes, HTMLAttributes, {
-        'media-type': 'img',
-      }),
+      mergeAttributes(this.options.HTMLAttributes, HTMLAttributes),
     ];
   },
 
@@ -140,7 +118,6 @@ const ImageExtend = Image.extend<ImageOptions>({
             src,
             alt,
             title,
-            'media-type': 'img',
           };
         },
       }),
