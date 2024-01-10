@@ -21,7 +21,6 @@ declare module '@tiptap/core' {
     customImage: {
       setAttributes: (options: AttributesProps) => ReturnType;
       setNewImage: (options: {
-        'media-type': string;
         src: string;
         alt?: string;
         title?: string;
@@ -52,29 +51,18 @@ const ImageExtend = Image.extend<ImageOptions>({
         default: 'medium',
         rendered: false,
       },
-      'media-type': {
-        default: null,
-        renderHTML: (attributes) => {
-          return {
-            ['media-type']: parseInt(attributes['media-type']),
-          };
-        },
-        parseHTML: (element) => element.getAttribute('media-type'),
-      },
       alt: {
-        default: null,
         renderHTML: (attributes) => {
           return {
-            alt: parseInt(attributes.alt),
+            alt: attributes.alt,
           };
         },
         parseHTML: (element) => element.getAttribute('alt'),
       },
       title: {
-        default: null,
         renderHTML: (attributes) => {
           return {
-            title: parseInt(attributes.title),
+            title: attributes.title,
           };
         },
         parseHTML: (element) => element.getAttribute('title'),
@@ -92,7 +80,7 @@ const ImageExtend = Image.extend<ImageOptions>({
         default: 'auto',
         renderHTML: (attributes) => {
           return {
-            height: parseInt(attributes.width),
+            height: parseInt(attributes.height),
           };
         },
         parseHTML: (element) => element.getAttribute('height'),
@@ -106,27 +94,12 @@ const ImageExtend = Image.extend<ImageOptions>({
         tag: 'img[src]:not([src^="data:"])',
         getAttrs: (el) => ({
           src: (el as HTMLImageElement).getAttribute('src'),
-          'media-type': 'img',
         }),
       },
     ];
   },
 
   renderHTML({ HTMLAttributes }) {
-    const { 'media-type': mediaType } = HTMLAttributes;
-
-    if (mediaType === 'img') {
-      return [
-        'img',
-        mergeAttributes(this.options.HTMLAttributes, HTMLAttributes),
-      ];
-    }
-
-    if (!mediaType)
-      console.error(
-        'TiptapMediaExtension-renderHTML method: Media Type not set, going default with image',
-      );
-
     return [
       'img',
       mergeAttributes(this.options.HTMLAttributes, HTMLAttributes),
@@ -145,7 +118,6 @@ const ImageExtend = Image.extend<ImageOptions>({
             src,
             alt,
             title,
-            'media-type': 'img',
           };
         },
       }),
