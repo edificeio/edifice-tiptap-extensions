@@ -11,7 +11,7 @@ const TemplatesNode = Node.create({
   parseHTML() {
     return [
       {
-        tag: 'div[class=row]'
+        tag: 'div[class=row]',
       },
     ];
   },
@@ -21,37 +21,40 @@ const TemplatesNode = Node.create({
       columns: {
         default: [],
         parseHTML: (element) => {
-          return Array.from(element.getElementsByTagName("article")).map((article: any) => {
-            const title = article.getElementsByTagName("h2")[0];
-            const text = article.getElementsByTagName("p")[0];
-            const img = article.getElementsByTagName("img")[0];
-            return {
-              title: title ? title.textContent : "",
-              content: text ? text.textContent : "",
-              image: img ? img.src : ""
-            };
-          });
-        }
-      }
+          return Array.from(element.getElementsByTagName('article')).map(
+            (article: any) => {
+              const title = article.getElementsByTagName('h2')[0];
+              const text = article.getElementsByTagName('p')[0];
+              const img = article.getElementsByTagName('img')[0];
+              return {
+                title: title ? title.textContent : '',
+                content: text ? text.textContent : '',
+                image: img ? img.src : '',
+              };
+            },
+          );
+        },
+      },
     };
   },
 
   renderHTML({ HTMLAttributes }) {
     const columns = HTMLAttributes.columns || [];
     const titles = columns.map((column) => {
-      return ["th", {}, column.title]
+      return ['th', {}, column.title];
     });
     const cells = columns.map((column) => {
-      if(column.image) {
-        return ["td", {}, ["img", { src: column.image }]]
+      if (column.image) {
+        return ['td', {}, ['img', { src: column.image }]];
       } else {
-        return ["td", {}, column.content]
+        return ['td', {}, column.content];
       }
     });
     return [
-      "table", {},
-      ["thead", {}, ["tr", {}, ...titles ]],
-      ["tbody", {}, ["tr", {}, ...cells ]]
+      'table',
+      {},
+      ['thead', {}, ['tr', {}, ...titles]],
+      ['tbody', {}, ['tr', {}, ...cells]],
     ];
   },
 });
