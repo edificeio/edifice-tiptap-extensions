@@ -4,11 +4,11 @@ declare module '@tiptap/core' {
   interface Commands<ReturnType> {
     abbr: {
       /**
-       * Set a video node
+       * Set an abbr mark
        */
       setAbbr: (src: string) => ReturnType;
       /**
-       * Toggle a video
+       * Toggle an abbr mark
        */
       toggleAbbr: (src: string) => ReturnType;
     };

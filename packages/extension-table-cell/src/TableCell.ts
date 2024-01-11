@@ -27,5 +27,4 @@ const TableCell = TipTapTableCell.extend({
   },
 });
 
-export { TableCell };
 export default TableCell;

@@ -1,3 +1,1 @@
-import TableCell from './TableCell';
-
-export { TableCell };
+export { default as TableCell } from './TableCell';

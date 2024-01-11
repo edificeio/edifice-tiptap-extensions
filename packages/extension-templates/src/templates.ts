@@ -2,7 +2,6 @@
 import { Node } from '@tiptap/core';
 
 const TemplatesNode = Node.create({
-  
   name: 'templates',
   group: 'inline',
   inline: true,
