@@ -86,6 +86,14 @@ const Hyperlink = Link.extend({
       title: {
         default: this.options.HTMLAttributes.title,
       },
+      text: {
+        default: '',
+        // Sanitize text content value
+        parseHTML: (element) => element.textContent,
+        renderHTML: (attributes) => ({
+          target: attributes['text'],
+        }),
+      },
     };
   },
 });
