@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Node } from '@tiptap/core';
 
-const TemplatesNode = Node.create({
+export const Templates = Node.create({
   name: 'templates',
   group: 'inline',
   inline: true,
@@ -63,6 +63,3 @@ const TemplatesNode = Node.create({
     ];
   },
 });
-
-export { TemplatesNode };
-export default TemplatesNode;

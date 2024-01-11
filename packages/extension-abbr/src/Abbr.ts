@@ -15,7 +15,7 @@ declare module '@tiptap/core' {
   }
 }
 
-const Abbr = Mark.create({
+export const Abbr = Mark.create({
   name: 'abbr',
 
   addOptions() {
@@ -55,5 +55,3 @@ const Abbr = Mark.create({
     };
   },
 });
-
-export default Abbr;

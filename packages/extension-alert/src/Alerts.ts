@@ -1,6 +1,6 @@
 import { Mark } from '@tiptap/core';
 
-const AlertsNode = Mark.create({
+export const Alerts = Mark.create({
   name: 'alerts',
 
   parseHTML() {
@@ -26,6 +26,3 @@ const AlertsNode = Mark.create({
     return ['div', { class: type }, 0];
   },
 });
-
-export { AlertsNode };
-export default AlertsNode;

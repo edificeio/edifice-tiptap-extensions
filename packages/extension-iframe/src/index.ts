@@ -1,3 +1,5 @@
-import IFrame from './iframe';
+import { Iframe } from './Iframe';
 
-export { IFrame };
+export * from './Iframe';
+
+export default Iframe;

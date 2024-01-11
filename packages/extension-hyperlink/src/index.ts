@@ -1,4 +1,5 @@
-import Hyperlink, { HyperlinkAttributes } from './Hyperlink';
+import { Hyperlink } from './Hyperlink';
 
-export { Hyperlink };
-export { HyperlinkAttributes };
+export * from './Hyperlink';
+
+export default Hyperlink;

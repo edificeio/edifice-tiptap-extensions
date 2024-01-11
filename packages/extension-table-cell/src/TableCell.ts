@@ -4,7 +4,7 @@ import { TableCell as TipTapTableCell } from '@tiptap/extension-table-cell';
  * This custom extension allows setting a background-color to table cells.
  * Apply with ̀`editor.chain().focus().setCellAttribute("backgroundColor", color).run()`
  */
-const TableCell = TipTapTableCell.extend({
+export const TableCell = TipTapTableCell.extend({
   addAttributes() {
     return {
       ...this.parent?.(),
@@ -26,5 +26,3 @@ const TableCell = TipTapTableCell.extend({
     };
   },
 });
-
-export default TableCell;

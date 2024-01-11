@@ -1,3 +1,5 @@
-import Abbr from './abbr';
+import { Abbr } from './Abbr';
 
-export { Abbr };
+export * from './Abbr';
+
+export default Abbr;

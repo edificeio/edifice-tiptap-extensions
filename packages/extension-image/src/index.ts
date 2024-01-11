@@ -1,3 +1,5 @@
-import ImageExtend from './image';
+import { CustomImage } from './CustomImage';
 
-export { ImageExtend };
+export * from './CustomImage';
+
+export default CustomImage;
