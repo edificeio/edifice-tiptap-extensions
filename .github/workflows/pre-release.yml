@@ -1,12 +1,13 @@
-name: Release
+name: Pre-Release
 on:
   push:
     branches:
-      - main
+      - develop
+      - develop*
 permissions:
   contents: read #  for checkout
 jobs:
-  release:
+  pre-release:
     permissions:
       contents: write #  to be able to publish a GitHub release
       issues: write #  to be able to comment on released issues
@@ -16,7 +17,6 @@ jobs:
       - uses: actions/checkout@v3
         with:
           fetch-depth: "0"
-
       - uses: actions/setup-node@v3
         name: Install Node
         with:
@@ -59,13 +59,10 @@ jobs:
           git config user.name "${{ github.actor }}"
           git config user.email "${{ github.actor}}@users.noreply.github.com"
 
-          npx lerna version --conventional-commits --conventional-graduate --create-release github --no-private --yes || export LERNA_VERSION_ERROR=$?
+          echo "Your current branch is ${{ github.ref_name }}"
 
-          if [ -n "$LERNA_VERSION_ERROR" ]; then
-            npx lerna version --conventional-commits --create-release github --no-private --yes
-          fi
+          npx lerna publish --canary --preid ${{ github.ref_name }} --pre-dist-tag ${{ github.ref_name }} --yes
 
-          npx lerna publish from-git --conventional-commits --yes
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
