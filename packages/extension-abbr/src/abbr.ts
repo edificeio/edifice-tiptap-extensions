@@ -56,5 +56,4 @@ const Abbr = Mark.create({
   },
 });
 
-export { Abbr };
 export default Abbr;
