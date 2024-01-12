@@ -5,6 +5,7 @@ export type HyperlinkAttributes = {
   href: string | null;
   target: '_blank' | null;
   title: string | null;
+  text: string | null;
 };
 
 declare module '@tiptap/core' {
@@ -85,6 +86,14 @@ const Hyperlink = Link.extend({
       },
       title: {
         default: this.options.HTMLAttributes.title,
+      },
+      text: {
+        default: '',
+        // Sanitize text content value
+        parseHTML: (element) => element.textContent,
+        renderHTML: (attributes) => ({
+          target: attributes['text'],
+        }),
       },
     };
   },
