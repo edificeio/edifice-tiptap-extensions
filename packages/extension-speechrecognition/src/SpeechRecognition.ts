@@ -28,7 +28,7 @@ class SR_Node<O = any, S = any> extends Node<O, S> {
   }
 }
 
-const SpeechRecognition = SR_Node.create<SpeechRecognitionOptions>({
+export const SpeechRecognition = SR_Node.create<SpeechRecognitionOptions>({
   name: 'SpeechRecognition',
 
   addOptions() {
@@ -143,7 +143,3 @@ const SpeechRecognition = SR_Node.create<SpeechRecognitionOptions>({
     };
   },
 });
-
-export { SpeechRecognition };
-
-export default SpeechRecognition;

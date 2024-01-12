@@ -22,7 +22,7 @@ declare module '@tiptap/core' {
   }
 }
 
-const TypoSize = Heading.extend({
+export const TypoSize = Heading.extend({
   name: 'typoSize',
 
   parseHTML() {
@@ -104,6 +104,3 @@ const TypoSize = Heading.extend({
     };
   },
 });
-
-export { TypoSize };
-export default TypoSize;

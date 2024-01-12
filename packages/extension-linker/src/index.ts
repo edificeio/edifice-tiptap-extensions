@@ -1,4 +1,5 @@
-import Linker, { LinkerAttributes } from './Linker';
+import { Linker } from './Linker';
 
-export { Linker };
-export { LinkerAttributes };
+export * from './Linker';
+
+export default Linker;

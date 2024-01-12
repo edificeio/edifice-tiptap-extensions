@@ -1,3 +1,5 @@
-import MathJax from './mathjax';
+import { MathJax } from './MathJax';
 
-export { MathJax };
+export * from './MathJax';
+
+export default MathJax;

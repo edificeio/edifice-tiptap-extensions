@@ -32,7 +32,7 @@ declare module '@tiptap/core' {
  * Links to internal resources MAY have a `title` and MUST HAVE `data-id` and `data-app-prefix` attributes :
  * `<a href="/blog#/view/35fa4198-blog_id/5e654c71-article_id" data-app-prefix="blog" data-id="35fa4198-blog_id" target="_blank" title="Voir ce billet de blog" class="ng-scope">/blog#/view/35fa4198-57fe-45eb-94f4-a5e4defff305/5e654c71-1e61-4f84-86dc-6fcfaf33f513</a>`
  */
-const Linker = Node.create({
+export const Linker = Node.create({
   name: 'linker',
   content: 'text*',
   marks: '',
@@ -151,6 +151,3 @@ const Linker = Node.create({
     };
   },
 });
-
-export { Linker };
-export default Linker;

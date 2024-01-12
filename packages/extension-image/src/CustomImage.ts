@@ -5,7 +5,7 @@ import Image from '@tiptap/extension-image';
 export const IMAGE_INPUT_REGEX =
   /(?:^|\s)(!\[(.+|:?)]\((\S+)(?:(?:\s+)["'](\S+)["'])?\))$/;
 
-export interface ImageOptions {
+export interface CustomImageOptions {
   HTMLAttributes: Record<string, string>;
   sizes: string[];
 }
@@ -29,7 +29,7 @@ declare module '@tiptap/core' {
   }
 }
 
-const ImageExtend = Image.extend<ImageOptions>({
+export const CustomImage = Image.extend<CustomImageOptions>({
   name: 'custom-image',
   draggable: true,
   selectable: true,
@@ -159,6 +159,3 @@ const ImageExtend = Image.extend<ImageOptions>({
     };
   },
 });
-
-export { ImageExtend };
-export default ImageExtend;

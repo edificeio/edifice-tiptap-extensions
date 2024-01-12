@@ -21,7 +21,7 @@ class SS_Node<O = any, S = any> extends Node<O, S> {
   }
 }
 
-const SpeechSynthesis = SS_Node.create<SpeechSynthesisOptions>({
+export const SpeechSynthesis = SS_Node.create<SpeechSynthesisOptions>({
   name: 'speechSynthesis',
   addOptions() {
     return {
@@ -51,7 +51,3 @@ const SpeechSynthesis = SS_Node.create<SpeechSynthesisOptions>({
     };
   },
 });
-
-export { SpeechSynthesis };
-
-export default SpeechSynthesis;

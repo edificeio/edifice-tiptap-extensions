@@ -12,7 +12,7 @@ declare module '@tiptap/core' {
   }
 }
 
-const Attachment = Node.create<AttachmentOptions>({
+export const Attachment = Node.create<AttachmentOptions>({
   name: 'attachments',
   content: '',
   marks: '',
@@ -110,6 +110,3 @@ const Attachment = Node.create<AttachmentOptions>({
     };
   },
 });
-
-export { Attachment };
-export default Attachment;

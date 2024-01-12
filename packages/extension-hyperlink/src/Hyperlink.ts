@@ -36,7 +36,7 @@ declare module '@tiptap/core' {
  * Links to external resources MUST NOT have a `data-id` nor a `data-app-prefix` attribute.
  * The `target` attribute has to be sanitized, so it is overriden.
  */
-const Hyperlink = Link.extend({
+export const Hyperlink = Link.extend({
   name: 'hyperlink',
 
   parseHTML() {
@@ -98,6 +98,3 @@ const Hyperlink = Link.extend({
     };
   },
 });
-
-export { Hyperlink };
-export default Hyperlink;

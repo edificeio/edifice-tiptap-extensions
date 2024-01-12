@@ -1,3 +1,5 @@
-import Templates from './templates';
+import { Templates } from './Templates';
 
-export { Templates };
+export * from './Templates';
+
+export default Templates;

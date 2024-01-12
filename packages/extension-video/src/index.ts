@@ -1,3 +1,5 @@
-import Video from './video';
+import { Video } from './Video';
 
-export { Video };
+export * from './Video';
+
+export default Video;

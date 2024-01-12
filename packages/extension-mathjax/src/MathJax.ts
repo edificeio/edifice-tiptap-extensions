@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Node } from '@tiptap/core';
 
-const MathJaxNode = Node.create({
+export const MathJax = Node.create({
   name: 'mathjaxnode',
   group: 'inline',
   inline: true,
@@ -54,6 +54,3 @@ const MathJaxNode = Node.create({
     return ['span', {}, equation];
   },
 });
-
-export { MathJaxNode };
-export default MathJaxNode;

@@ -17,7 +17,7 @@ declare module '@tiptap/core' {
   }
 }
 
-const Audio = Node.create({
+export const Audio = Node.create({
   name: 'audio',
 
   group: 'block',
@@ -70,6 +70,3 @@ const Audio = Node.create({
     };
   },
 });
-
-export { Audio };
-export default Audio;
