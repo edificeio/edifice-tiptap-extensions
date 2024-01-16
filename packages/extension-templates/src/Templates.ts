@@ -3,8 +3,8 @@ import { Node } from '@tiptap/core';
 
 export const Templates = Node.create({
   name: 'templates',
-  group: 'inline',
-  inline: true,
+  group: 'block',
+  inline: false,
   atom: false,
   selectable: true,
 
