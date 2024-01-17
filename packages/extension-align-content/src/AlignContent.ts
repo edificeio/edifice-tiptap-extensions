@@ -1,7 +1,7 @@
 import TextAlign from '@tiptap/extension-text-align';
 
-export const AlignMedia = TextAlign.extend({
-  name: 'alignMedia',
+export const AlignContent = TextAlign.extend({
+  name: 'alignContent',
 
   addGlobalAttributes() {
     return [
