@@ -1,5 +1,5 @@
 {
-  "name": "@edifice-tiptap-extensions/extension-align-media",
+  "name": "@edifice-tiptap-extensions/extension-align-content",
   "version": "1.0.0",
   "description": "Rich Text Editor AlignMedia Extension",
   "main": "dist/index.cjs",
