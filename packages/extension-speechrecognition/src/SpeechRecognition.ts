@@ -63,52 +63,32 @@ export const SpeechRecognition = SR_Node.create<SpeechRecognitionOptions>({
 
           this.recognition.start();
 
-          this.recognition.contentLength = this.editor.getText().length + 1;
-          this.recognition.quoicoubeh = null;
+          // Memoize initial caret positions
+          let { from, to } = this.editor.state.selection;
 
           this.recognition.onresult = (event: SpeechRecognitionEvent) => {
-            // If the length of the content of the editor is less than the length of the recognized content, redefine the variable contentLength taking into account the length of the recognized content
-            if (
-              this.recognition.contentLength >
-              this.editor.getText().length + 1
-            ) {
-              this.recognition.contentLength = this.editor.getText().length + 1;
-            }
-
-            this.recognition.currentResult = '';
+            let currentResult = '';
 
             // Add to the currentResult variable the content of the last recognized sentence
             for (let i = event.resultIndex; i < event.results.length; i++) {
-              this.recognition.currentResult += event.results[i][0].transcript;
+              currentResult += event.results[i][0].transcript;
             }
 
-            // Delete the last sentence displayed (currentResult) in the editor
-            this.editor.commands.deleteRange({
-              from: this.recognition.contentLength,
-              to: this.editor.getText().length + 1,
-            });
+            // Is this the final recognition ?
+            const isFinal = event.results[event.results.length - 1].isFinal;
 
-            // Add the last recognized sentence (currentResult) in the editor with a style
+            // Replace selection by the last recognized sentence (+ style and select, if not final)
+            this.editor.commands.deleteRange({ from, to });
             this.editor.commands.insertContentAt(
-              this.recognition.contentLength,
-              `<code>${this.recognition.currentResult}</code>`,
+              from,
+              isFinal ? currentResult : `<code>${currentResult}</code>`,
+              { updateSelection: !isFinal },
             );
+            to = this.editor.state.selection.to;
 
-            // If the last recognized sentence is final, delete the last recognized sentence (currentResult) in the editor and rewrite the last recognized sentence (currentResult) in the editor without style
-            if (event.results[event.results.length - 1].isFinal) {
-              this.editor.commands.deleteRange({
-                from: this.recognition.contentLength,
-                to: this.editor.getText().length + 1,
-              });
-              this.editor.commands.insertContentAt(
-                this.recognition.contentLength,
-                this.recognition.currentResult,
-              );
-
-              // Redefine the variable contentLength taking into account the last recognized sentence
-              this.recognition.contentLength +=
-                event.results[event.results.length - 1][0].transcript.length +
-                1;
+            if (isFinal) {
+              // Next content will go after last insertion
+              from = to;
             }
           };
 
@@ -135,7 +115,6 @@ export const SpeechRecognition = SR_Node.create<SpeechRecognitionOptions>({
         ({ commands }) => {
           this.recognition.stop();
           this.editor.commands.focus();
-          this.recognition.lastResult = '';
           return commands;
         },
 
