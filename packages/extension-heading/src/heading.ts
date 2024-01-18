@@ -53,7 +53,7 @@ export const CustomHeading = Heading.extend<Options>({
     return {
       setCustomHeading:
         (attributes) =>
-        ({ tr, dispatch, state, commands }) => {
+        ({ tr, dispatch, commands }) => {
           if (!this.options.levels.includes(attributes.level)) {
             return false;
           }
@@ -61,15 +61,8 @@ export const CustomHeading = Heading.extend<Options>({
           const { selection } = tr;
           const { from, to } = selection;
 
-          let blockStart;
-          let blockEnd;
-
           tr.doc.nodesBetween(from, to, (node, pos) => {
             if (node.isBlock && from >= pos && to <= pos + node.nodeSize) {
-              /* get block position to apply to whole text */
-              blockStart = pos;
-              blockEnd = pos + node.nodeSize;
-
               /* get node content and iterate through */
               node.content.forEach((content) => {
                 /* get content marks and iterate through */
@@ -87,9 +80,6 @@ export const CustomHeading = Heading.extend<Options>({
               });
             }
           });
-
-          /* add bold mark to whole block when setting a heading style */
-          tr.addMark(blockStart, blockEnd, state.schema.marks.bold.create());
 
           if (dispatch) {
             dispatch(tr);
