@@ -1,7 +1,7 @@
 {
-  "name": "@edifice-tiptap-extensions/extension-typosize",
+  "name": "@edifice-tiptap-extensions/extension-font-size",
   "version": "1.0.0",
-  "description": "Rich Text Editor TypoSize Extension",
+  "description": "Rich Text Editor FontSize Extension",
   "main": "dist/index.cjs",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -32,6 +32,7 @@
     "@rollup/plugin-babel": "^6.0.3",
     "@rollup/plugin-commonjs": "^24.0.1",
     "@tiptap/extension-heading": "2.0.3",
+    "@tiptap/extension-text-style": "2.0.3",
     "@tiptap/core": "2.0.3",
     "@tiptap/pm": "2.0.3",
     "rollup": "^3.17.3",
@@ -42,7 +43,8 @@
   "peerDependencies": {
     "@tiptap/core": "2.0.3",
     "@tiptap/pm": "2.0.3",
-    "@tiptap/extension-heading": "2.0.3"
+    "@tiptap/extension-heading": "2.0.3",
+    "@tiptap/extension-text-style": "2.0.3"
   },
   "publishConfig": {
     "access": "public"
