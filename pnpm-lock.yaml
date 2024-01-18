@@ -134,6 +134,40 @@ importers:
         specifier: ^0.34.1
         version: 0.34.1(rollup@3.29.4)(typescript@5.0.2)
 
+  packages/extension-align-content:
+    dependencies:
+      '@tiptap/extension-link':
+        specifier: 2.0.3
+        version: 2.0.3(@tiptap/core@2.0.3)(@tiptap/pm@2.0.3)
+    devDependencies:
+      '@rollup/plugin-babel':
+        specifier: ^6.0.3
+        version: 6.0.4(@babel/core@7.23.2)(rollup@3.29.4)
+      '@rollup/plugin-commonjs':
+        specifier: ^24.0.1
+        version: 24.1.0(rollup@3.29.4)
+      '@tiptap/core':
+        specifier: 2.0.3
+        version: 2.0.3(@tiptap/pm@2.0.3)
+      '@tiptap/extension-text-align':
+        specifier: 2.0.3
+        version: 2.0.3(@tiptap/core@2.0.3)
+      '@tiptap/pm':
+        specifier: 2.0.3
+        version: 2.0.3(@tiptap/core@2.0.3)
+      rollup:
+        specifier: ^3.17.3
+        version: 3.29.4
+      rollup-plugin-auto-external:
+        specifier: ^2.0.0
+        version: 2.0.0(rollup@3.29.4)
+      rollup-plugin-sourcemaps:
+        specifier: ^0.6.3
+        version: 0.6.3(@types/node@20.2.5)(rollup@3.29.4)
+      rollup-plugin-typescript2:
+        specifier: ^0.34.1
+        version: 0.34.1(rollup@3.29.4)(typescript@5.0.2)
+
   packages/extension-attachment:
     devDependencies:
       '@rollup/plugin-babel':
@@ -326,9 +360,6 @@ importers:
       '@tiptap/core':
         specifier: 2.0.3
         version: 2.0.3(@tiptap/pm@2.0.3)
-      '@tiptap/extension-heading':
-        specifier: 2.0.3
-        version: 2.0.3(@tiptap/core@2.0.3)
       '@tiptap/extension-image':
         specifier: 2.0.3
         version: 2.0.3(@tiptap/core@2.0.3)
@@ -2019,6 +2050,8 @@ packages:
       '@tiptap/core': 2.0.3(@tiptap/pm@2.0.3)
     dev: true
 
+  /@tiptap/extension-text-align@2.0.3(@tiptap/core@2.0.3):
+    resolution: {integrity: sha512-VlLgqncKdjMjVjbU60/ALYhFs0wUdjAyvjDXnH1OoM/HuzbILvufPMYz4DUieJIWVJOYUKHQgg4XwBWceAM2Tw==}
   /@tiptap/extension-text-style@2.0.3(@tiptap/core@2.0.3):
     resolution: {integrity: sha512-yHIYtZVewSwfBfI6TffnsDRiOuXzytppcCsaDlsZFm8OtLG8v9ioH0ItMoOstmZZBiWJOm8iOy2yWSc4rNQEJw==}
     peerDependencies:
@@ -4233,6 +4266,7 @@ packages:
   /iconv-lite@0.6.3:
     resolution: {integrity: sha512-4fCk79wshMdzMp2rH06qWrJE4iolqLhCUH+OiuIgU++RB0+94NlDL81atO7GX55uUKueo0txHNtvEyI6D7WdMw==}
     engines: {node: '>=0.10.0'}
+    requiresBuild: true
     dependencies:
       safer-buffer: 2.1.2
     dev: true
