@@ -1,4 +1,3 @@
-import { mergeAttributes } from '@tiptap/core';
 import { TableCell as TipTapTableCell } from '@tiptap/extension-table-cell';
 
 /**
