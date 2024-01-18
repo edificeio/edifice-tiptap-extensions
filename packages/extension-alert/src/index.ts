@@ -1,5 +1,5 @@
-import { Alerts } from './Alerts';
+import { Alert } from './alert';
 
-export * from './Alerts';
+export * from './alert';
 
-export default Alerts;
+export default Alert;
