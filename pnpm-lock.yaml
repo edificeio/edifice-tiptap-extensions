@@ -514,6 +514,9 @@ importers:
       '@tiptap/pm':
         specifier: 2.0.3
         version: 2.0.3(@tiptap/core@2.0.3)
+      prosemirror-state:
+        specifier: ^1.4.3
+        version: 1.4.3
       rollup:
         specifier: ^3.17.3
         version: 3.29.4
@@ -2052,6 +2055,12 @@ packages:
 
   /@tiptap/extension-text-align@2.0.3(@tiptap/core@2.0.3):
     resolution: {integrity: sha512-VlLgqncKdjMjVjbU60/ALYhFs0wUdjAyvjDXnH1OoM/HuzbILvufPMYz4DUieJIWVJOYUKHQgg4XwBWceAM2Tw==}
+    peerDependencies:
+      '@tiptap/core': ^2.0.0
+    dependencies:
+      '@tiptap/core': 2.0.3(@tiptap/pm@2.0.3)
+    dev: true
+
   /@tiptap/extension-text-style@2.0.3(@tiptap/core@2.0.3):
     resolution: {integrity: sha512-yHIYtZVewSwfBfI6TffnsDRiOuXzytppcCsaDlsZFm8OtLG8v9ioH0ItMoOstmZZBiWJOm8iOy2yWSc4rNQEJw==}
     peerDependencies:
