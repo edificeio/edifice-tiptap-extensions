@@ -11,7 +11,7 @@ export const Templates = Node.create({
   parseHTML() {
     return [
       {
-        tag: 'div[class=row]',
+        tag: 'div[class^=row]',
       },
     ];
   },
@@ -23,12 +23,16 @@ export const Templates = Node.create({
         parseHTML: (element) => {
           return Array.from(element.getElementsByTagName('article')).map(
             (article: any) => {
-              const title = article.getElementsByTagName('h2')[0];
-              const text = article.getElementsByTagName('p')[0];
+              const title = article.getElementsByTagName('h2')[0];  
               const img = article.getElementsByTagName('img')[0];
+              let text;
+              if(title) {
+                article.removeChild(title);
+                text = article;
+              }
               return {
                 title: title ? title.textContent : '',
-                content: text ? text.textContent : '',
+                content: text ? text : '',
                 image: img ? img.src : '',
               };
             },
@@ -54,7 +58,13 @@ export const Templates = Node.create({
     const cells = columns
       .filter((c) => !!c.content)
       .map((column) => {
-        return ['td', { class: 'text' }, column.content];
+        let children;
+        if(column.content.children) {
+          children = column.content.children;
+        } else {
+          column = [''];
+        }
+        return ['td', { class: 'text' }, ...children];
       });
     return [
       'table',
