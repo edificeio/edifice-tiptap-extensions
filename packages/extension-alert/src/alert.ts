@@ -20,6 +20,14 @@ export const Alert = Node.create({
         tag: 'p.warning',
         priority: 60,
       },
+      {
+        tag: 'div.info',
+        priority: 60,
+      },
+      {
+        tag: 'div.warning',
+        priority: 60,
+      },
     ];
   },
   addAttributes() {
