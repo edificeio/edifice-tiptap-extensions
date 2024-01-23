@@ -524,33 +524,6 @@ importers:
         specifier: ^0.34.1
         version: 0.34.1(rollup@3.29.4)(typescript@5.3.3)
 
-  packages/extension-templates:
-    devDependencies:
-      '@rollup/plugin-babel':
-        specifier: ^6.0.3
-        version: 6.0.4(@babel/core@7.23.7)(rollup@3.29.4)
-      '@rollup/plugin-commonjs':
-        specifier: ^24.0.1
-        version: 24.1.0(rollup@3.29.4)
-      '@tiptap/core':
-        specifier: 2.0.3
-        version: 2.0.3(@tiptap/pm@2.0.3)
-      '@tiptap/pm':
-        specifier: 2.0.3
-        version: 2.0.3(@tiptap/core@2.0.3)
-      rollup:
-        specifier: ^3.17.3
-        version: 3.29.4
-      rollup-plugin-auto-external:
-        specifier: ^2.0.0
-        version: 2.0.0(rollup@3.29.4)
-      rollup-plugin-sourcemaps:
-        specifier: ^0.6.3
-        version: 0.6.3(@types/node@20.11.5)(rollup@3.29.4)
-      rollup-plugin-typescript2:
-        specifier: ^0.34.1
-        version: 0.34.1(rollup@3.29.4)(typescript@5.3.3)
-
   packages/extension-video:
     devDependencies:
       '@rollup/plugin-babel':
