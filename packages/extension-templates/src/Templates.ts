@@ -23,10 +23,10 @@ export const Templates = Node.create({
         parseHTML: (element) => {
           return Array.from(element.getElementsByTagName('article')).map(
             (article: any) => {
-              const title = article.getElementsByTagName('h2')[0];  
+              const title = article.getElementsByTagName('h2')[0];
               const img = article.getElementsByTagName('img')[0];
               let text;
-              if(title) {
+              if (title) {
                 article.removeChild(title);
                 text = article;
               }
@@ -59,7 +59,7 @@ export const Templates = Node.create({
       .filter((c) => !!c.content)
       .map((column) => {
         let children;
-        if(column.content.children) {
+        if (column.content.children) {
           children = column.content.children;
         } else {
           column = [''];
