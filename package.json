@@ -23,9 +23,6 @@
     "pre-commit": "pnpm lint && pnpm format",
     "prepare": "husky install"
   },
-  "dependencies": {
-    "semantic-release-monorepo": "8.0.0"
-  },
   "devDependencies": {
     "@turbo/gen": "1.11.3",
     "@types/node": "20.11.5",
