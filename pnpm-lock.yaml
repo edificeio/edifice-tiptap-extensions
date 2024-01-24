@@ -127,40 +127,6 @@ importers:
         specifier: ^0.34.1
         version: 0.34.1(rollup@3.29.4)(typescript@5.3.3)
 
-  packages/extension-align-content:
-    dependencies:
-      '@tiptap/extension-link':
-        specifier: 2.0.3
-        version: 2.0.3(@tiptap/core@2.0.3)(@tiptap/pm@2.0.3)
-    devDependencies:
-      '@rollup/plugin-babel':
-        specifier: ^6.0.3
-        version: 6.0.4(@babel/core@7.23.7)(rollup@3.29.4)
-      '@rollup/plugin-commonjs':
-        specifier: ^24.0.1
-        version: 24.1.0(rollup@3.29.4)
-      '@tiptap/core':
-        specifier: 2.0.3
-        version: 2.0.3(@tiptap/pm@2.0.3)
-      '@tiptap/extension-text-align':
-        specifier: 2.0.3
-        version: 2.0.3(@tiptap/core@2.0.3)
-      '@tiptap/pm':
-        specifier: 2.0.3
-        version: 2.0.3(@tiptap/core@2.0.3)
-      rollup:
-        specifier: ^3.17.3
-        version: 3.29.4
-      rollup-plugin-auto-external:
-        specifier: ^2.0.0
-        version: 2.0.0(rollup@3.29.4)
-      rollup-plugin-sourcemaps:
-        specifier: ^0.6.3
-        version: 0.6.3(@types/node@20.11.5)(rollup@3.29.4)
-      rollup-plugin-typescript2:
-        specifier: ^0.34.1
-        version: 0.34.1(rollup@3.29.4)(typescript@5.3.3)
-
   packages/extension-attachment:
     devDependencies:
       '@rollup/plugin-babel':
@@ -2358,14 +2324,6 @@ packages:
 
   /@tiptap/extension-table-cell@2.0.3(@tiptap/core@2.0.3):
     resolution: {integrity: sha512-d0vpwQfRIOhqKJdoiOJybwWhjnug3QA4Mkgccp378moDRyOer3hPKavG1Ljgz087qHrN4WfdUlMGEvasYsWE7w==}
-    peerDependencies:
-      '@tiptap/core': ^2.0.0
-    dependencies:
-      '@tiptap/core': 2.0.3(@tiptap/pm@2.0.3)
-    dev: true
-
-  /@tiptap/extension-text-align@2.0.3(@tiptap/core@2.0.3):
-    resolution: {integrity: sha512-VlLgqncKdjMjVjbU60/ALYhFs0wUdjAyvjDXnH1OoM/HuzbILvufPMYz4DUieJIWVJOYUKHQgg4XwBWceAM2Tw==}
     peerDependencies:
       '@tiptap/core': ^2.0.0
     dependencies:
