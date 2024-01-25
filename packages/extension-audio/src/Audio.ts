@@ -11,8 +11,13 @@ declare module '@tiptap/core' {
     audio: {
       /**
        * Set a audio node
+       * @param options.updateSelection set to true will select the newly inserted content
        */
-      setAudio: (id: string, src: string) => ReturnType;
+      setAudio: (
+        id: string,
+        src: string,
+        options?: { updateSelection: boolean },
+      ) => ReturnType;
     };
   }
 }
@@ -57,14 +62,15 @@ export const Audio = Node.create({
   addCommands() {
     return {
       setAudio:
-        (id: string, src: string) =>
-        ({ editor }) => {
-          return editor.commands.insertContentAt(
-            editor.view.state.selection,
+        (id, src, options) =>
+        ({ commands, state }) => {
+          return commands.insertContentAt(
+            state.selection,
             `<audio 
               src="${src}" 
               controls preload="none"
               data-document-id="${id}"></audio>`,
+            options,
           );
         },
     };

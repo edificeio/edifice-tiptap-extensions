@@ -13,6 +13,7 @@ declare module '@tiptap/core' {
     video: {
       /**
        * Set a video node
+       * @param options.updateSelection set to true will select the newly inserted content
        */
       setVideo: (
         id: string,
@@ -22,6 +23,7 @@ declare module '@tiptap/core' {
         height?: number,
         controls?: boolean,
         controlslist?: string,
+        options?: { updateSelection: boolean },
       ) => ReturnType;
       /**
        * Toggle a video
@@ -127,10 +129,11 @@ export const Video = Node.create({
           height = 219,
           controls = true,
           controlslist = 'nodownload',
+          options,
         ) =>
-        ({ editor }) => {
-          return editor.commands.insertContentAt(
-            editor.view.state.selection,
+        ({ commands, state }) => {
+          return commands.insertContentAt(
+            state.selection,
             `<video 
               controls="${controls}" 
               controlslist="${controlslist}"
@@ -140,6 +143,7 @@ export const Video = Node.create({
               data-document-id="${id}" 
               data-document-is-captation="${isCaptation}"
               data-video-resolution="${width}x${height}" />`,
+            options,
           );
         },
 
