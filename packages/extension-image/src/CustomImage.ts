@@ -68,7 +68,8 @@ export const CustomImage = Image.extend<CustomImageOptions>({
         parseHTML: (element) => element.getAttribute('title'),
       },
       width: {
-        default: '350',
+        // The default value is small to have a got retrocompatibility with the panda smiley #WB-2502
+        default: '80',
         renderHTML: (attributes) => {
           return {
             width: parseInt(attributes.width),
