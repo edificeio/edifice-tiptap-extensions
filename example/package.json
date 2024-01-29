@@ -1,7 +1,7 @@
 {
   "name": "example",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -9,15 +9,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@edifice-tiptap-extensions/transform": "workspace:*",
-    "@edifice-tiptap-extensions/extension-abbr": "workspace:*"
+    "@edifice-tiptap-extensions/extension-abbr": "workspace:*",
+    "@edifice-tiptap-extensions/transform": "workspace:*"
   },
   "devDependencies": {
-    "typescript": "5.0.2",
-    "vite": "4.3.9",
     "@tiptap/extension-bold": "2.0.3",
     "@tiptap/extension-document": "2.0.3",
     "@tiptap/extension-paragraph": "2.0.3",
-    "@tiptap/extension-text": "2.0.3"
+    "@tiptap/extension-text": "2.0.3",
+    "typescript": "5.0.2",
+    "vite": "4.3.9"
   }
 }
