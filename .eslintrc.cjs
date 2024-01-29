@@ -3,6 +3,8 @@ module.exports = {
   extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended'],
   parser: '@typescript-eslint/parser',
   parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
-  rules: {},
-  ignorePatterns: ['.eslintrc.cjs'],
+  rules: {
+    '@typescript-eslint/ban-ts-comment': 'off',
+  },
+  ignorePatterns: ['.eslintrc.cjs', 'prettier.config.cjs', 'dist'],
 };

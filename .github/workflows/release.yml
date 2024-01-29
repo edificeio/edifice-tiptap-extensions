@@ -1,9 +1,8 @@
-name: Semantic release
-'on':
+name: Release
+on:
   push:
     branches:
       - main
-      - dev
 permissions:
   contents: read #  for checkout
 jobs:
@@ -12,25 +11,29 @@ jobs:
       contents: write #  to be able to publish a GitHub release
       issues: write #  to be able to comment on released issues
       pull-requests: write #  to be able to comment on released pull requests
-    name: Release
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: "0"
+
       - uses: actions/setup-node@v3
+        name: Install Node
         with:
           node-version: 18
+
       - uses: pnpm/action-setup@v2
         name: Install pnpm
         id: pnpm-install
         with:
-          version: 7
+          version: 8.6.6
           run_install: false
 
       - name: Get pnpm store directory
         id: pnpm-cache
         shell: bash
         run: |
-          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+          echo "STORE_PATH=$(pnpm store path | tr -d '\n')" >> $GITHUB_OUTPUT
 
       - uses: actions/cache@v3
         name: Setup pnpm cache
@@ -40,8 +43,31 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
 
-      - run: pnpm install
-      - run: npx semantic-release
+      - name: Generate .npmrc
+        run: |
+          pnpm config set @edifice-ui:registry https://registry.npmjs.org
+          pnpm config set //registry.npmjs.org/:_authToken ${{ secrets.NPM_TOKEN }}
+          pnpm config set @tiptap-pro:registry https://registry.tiptap.dev
+          pnpm config set //registry.tiptap.dev/:_authToken ${{ secrets.TIPTAP_PRO_TOKEN }}
+          pnpm config set auto-install-peers true
+
+      - run: pnpm install --no-frozen-lockfile && pnpm build
+        name: Install & Build
+
+      - name: Version & Publish
+        run: |
+          git config user.name "${{ github.actor }}"
+          git config user.email "${{ github.actor}}@users.noreply.github.com"
+
+          npx lerna version --conventional-commits --conventional-graduate --create-release github --no-private --yes || export LERNA_VERSION_ERROR=$?
+
+          if [ -n "$LERNA_VERSION_ERROR" ]; then
+            npx lerna version --conventional-commits --create-release github --no-private --yes
+          fi
+
+          npx lerna publish from-git --conventional-commits --yes
         env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          TIPTAP_PRO_TOKEN: ${{ secrets.TIPTAP_PRO_TOKEN }}
