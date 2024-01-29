@@ -23,8 +23,10 @@
     "format": "pnpm run format:write && pnpm run format:check",
     "format:check": "prettier --check src/**/*.ts",
     "format:write": "prettier --write src/**/*.ts",
+    "generate-commit-version": "node ../../scripts/version.cjs",
     "lint": "eslint src --ext ts --report-unused-disable-directives --max-warnings 0",
-    "fix": "eslint src --fix --ext ts --report-unused-disable-directives --max-warnings 0"
+    "fix": "eslint src --fix --ext ts --report-unused-disable-directives --max-warnings 0",
+    "release": "pnpm run generate-commit-version && pnpm run build"
   },
   "devDependencies": {
     "@rollup/plugin-babel": "^6.0.3",
