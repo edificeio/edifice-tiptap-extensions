@@ -31,9 +31,9 @@
   "devDependencies": {
     "@rollup/plugin-babel": "^6.0.3",
     "@rollup/plugin-commonjs": "^24.0.1",
+    "@tiptap/core": "2.0.3",
     "@tiptap/extension-heading": "2.0.3",
     "@tiptap/extension-text-style": "2.0.3",
-    "@tiptap/core": "2.0.3",
     "@tiptap/pm": "2.0.3",
     "rollup": "^3.17.3",
     "rollup-plugin-auto-external": "^2.0.0",
@@ -42,9 +42,9 @@
   },
   "peerDependencies": {
     "@tiptap/core": "2.0.3",
-    "@tiptap/pm": "2.0.3",
     "@tiptap/extension-heading": "2.0.3",
-    "@tiptap/extension-text-style": "2.0.3"
+    "@tiptap/extension-text-style": "2.0.3",
+    "@tiptap/pm": "2.0.3"
   },
   "publishConfig": {
     "access": "public"

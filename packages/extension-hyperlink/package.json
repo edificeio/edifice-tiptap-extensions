@@ -40,8 +40,8 @@
   },
   "peerDependencies": {
     "@tiptap/core": "2.0.3",
-    "@tiptap/pm": "2.0.3",
-    "@tiptap/extension-link": "2.0.3"
+    "@tiptap/extension-link": "2.0.3",
+    "@tiptap/pm": "2.0.3"
   },
   "publishConfig": {
     "access": "public"
