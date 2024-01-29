@@ -5,8 +5,4 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## [1.0.2](https://github.com/opendigitaleducation/edifice-tiptap-extensions/compare/v1.0.1...v1.0.2) (2024-01-29)
 
-**Note:** Version bump only for package @edifice-tiptap-extensions/extension-alert
-
-## [1.0.1](https://github.com/opendigitaleducation/edifice-tiptap-extensions/compare/v1.0.0...v1.0.1) (2024-01-29)
-
-**Note:** Version bump only for package @edifice-tiptap-extensions/extension-alert
+**Note:** Version bump only for package @edifice-tiptap-extensions/extension-hyperlink

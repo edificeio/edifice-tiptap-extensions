@@ -1,6 +1,6 @@
 {
   "name": "@edifice-tiptap-extensions/extension-alert",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Rich Text Editor MathJax Extension",
   "main": "dist/index.cjs",
   "module": "dist/index.js",
