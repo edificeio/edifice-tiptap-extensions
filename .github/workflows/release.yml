@@ -68,4 +68,3 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          TIPTAP_PRO_TOKEN: ${{ secrets.TIPTAP_PRO_TOKEN }}
