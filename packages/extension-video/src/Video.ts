@@ -126,7 +126,7 @@ export const Video = Node.create({
           src: string,
           isCaptation: boolean,
           width = 350,
-          height = 219,
+          height = 197,
           controls = true,
           controlslist = 'nodownload',
           options,
