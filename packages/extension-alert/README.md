@@ -1,4 +1,4 @@
-# extension-templates
+# extension-alert
 
 ![npm](https://img.shields.io/npm/v/@edifice-tiptap-extensions/extension-alert?style=flat-square)
 ![bundlephobia](https://img.shields.io/bundlephobia/min/@edifice-tiptap-extensions/extension-alert?style=flat-square)
