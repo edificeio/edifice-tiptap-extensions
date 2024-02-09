@@ -47,7 +47,7 @@ export const Audio = Node.create({
   parseHTML() {
     return [
       {
-        tag: 'audio',
+        tag: 'div.audio-wrapper>audio,audio',
         getAttrs: (el: any) => ({
           src: (el as HTMLAudioElement).getAttribute('src'),
         }),
@@ -56,7 +56,11 @@ export const Audio = Node.create({
   },
 
   renderHTML({ HTMLAttributes }) {
-    return ['audio', mergeAttributes(HTMLAttributes)];
+    return [
+      'div',
+      { class: 'audio-wrapper' },
+      ['audio', mergeAttributes(HTMLAttributes)],
+    ];
   },
 
   addCommands() {
