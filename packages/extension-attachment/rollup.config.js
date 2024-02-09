@@ -4,7 +4,7 @@ import autoExternal from 'rollup-plugin-auto-external';
 import sourcemaps from 'rollup-plugin-sourcemaps';
 import commonjs from '@rollup/plugin-commonjs';
 import babel from '@rollup/plugin-babel';
-import typescript from 'rollup-plugin-typescript2';
+import typescript from 'rollup-plugin-typescript2';import terser from '@rollup/plugin-terser';
 
 const config = {
   input: 'src/index.ts',
@@ -28,6 +28,7 @@ const config = {
     babel(),
     commonjs(),
     typescript(),
+    terser()
   ],
 };
 
