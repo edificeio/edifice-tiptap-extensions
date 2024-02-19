@@ -106,7 +106,7 @@ export const Video = Node.create({
   parseHTML() {
     return [
       {
-        tag: 'video',
+        tag: 'div.video-wrapper>video,video',
         getAttrs: (el: any) => ({
           src: (el as HTMLVideoElement).getAttribute('src'),
         }),
@@ -115,7 +115,11 @@ export const Video = Node.create({
   },
 
   renderHTML({ HTMLAttributes }) {
-    return ['video', mergeAttributes(HTMLAttributes)];
+    return [
+      'div',
+      { class: 'video-wrapper' },
+      ['video', mergeAttributes(HTMLAttributes)],
+    ];
   },
 
   addCommands() {
