@@ -92,9 +92,16 @@ export const CustomImage = Image.extend<CustomImageOptions>({
     return [
       {
         tag: 'img[src]:not([src^="data:"])',
-        getAttrs: (el) => ({
-          src: (el as HTMLImageElement).getAttribute('src'),
-        }),
+        getAttrs: (el: HTMLImageElement) => {
+          const attr = {};
+          // Check old content format and get the width from the parent element
+          if (el.parentElement?.className.includes('image-container')) {
+            if (el.parentElement.style.width) {
+              attr['width'] = el.parentElement.style.width;
+            }
+          }
+          return { ...attr, src: (el as HTMLImageElement).getAttribute('src') };
+        },
       },
     ];
   },
