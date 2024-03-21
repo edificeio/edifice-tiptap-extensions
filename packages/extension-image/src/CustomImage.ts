@@ -85,6 +85,19 @@ export const CustomImage = Image.extend<CustomImageOptions>({
         },
         parseHTML: (element) => element.getAttribute('height'),
       },
+      style: {
+        renderHTML: (attributes) => {
+          return attributes.style
+            ? {
+                style: attributes.style,
+              }
+            : {};
+        },
+        parseHTML: (element) => {
+          const style = element.getAttribute('style');
+          return style && typeof style === 'string' ? {} : style;
+        },
+      },
     };
   },
 
@@ -118,8 +131,13 @@ export const CustomImage = Image.extend<CustomImageOptions>({
             oldSmileyList.filter((smiley) => attr.src.includes(smiley + '.png'))
               .length > 0
           ) {
-            attr['width'] = '24';
-            attr['height'] = '24';
+            attr['style'] = {
+              width: '1.5em',
+              height: '1.5em',
+              fontSize: el.parentElement.style.fontSize,
+            };
+            attr['width'] = 'null';
+            attr['height'] = 'null';
           }
           return attr;
         },
