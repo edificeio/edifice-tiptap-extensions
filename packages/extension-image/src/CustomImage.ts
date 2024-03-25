@@ -77,7 +77,6 @@ export const CustomImage = Image.extend<CustomImageOptions>({
         parseHTML: (element) => element.getAttribute('width'),
       },
       height: {
-        default: 'auto',
         renderHTML: (attributes) => {
           return {
             height: parseInt(attributes.height),
