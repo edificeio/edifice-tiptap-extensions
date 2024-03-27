@@ -43,12 +43,12 @@ export const Hyperlink = Link.extend({
     return [
       {
         tag: 'a[href]:not([href *= "javascript:" i])',
-        // Be sure no data-id nor data-app-prefix exists :
+        // Be sure no data-id and data-app-prefix attribute exists :
         // it would then be an Linker, not an Hyperlink !
         getAttrs: (node: HTMLAnchorElement) => {
           // See https://prosemirror.net/docs/ref/version/0.18.0.html#model.ParseRule.getAttrs
           if (
-            node.getAttribute('data-id') ||
+            node.getAttribute('data-id') &&
             node.getAttribute('data-app-prefix')
           )
             return false;
