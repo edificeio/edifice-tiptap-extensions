@@ -37,6 +37,8 @@ export const CustomImage = Image.extend<CustomImageOptions>({
   addOptions() {
     return {
       ...this.parent?.(),
+      inline: true,
+      content: 'inline*',
       sizes: ['small', 'medium', 'large'],
       HTMLAttributes: {
         class: 'custom-image',
