@@ -359,6 +359,10 @@ importers:
         version: 0.34.1(rollup@3.29.4)(typescript@5.3.3)
 
   packages/extension-image:
+    dependencies:
+      '@tiptap/extension-image':
+        specifier: 2.3.0
+        version: 2.3.0(@tiptap/core@2.3.0)
     devDependencies:
       '@rollup/plugin-babel':
         specifier: ^6.0.3
@@ -372,9 +376,6 @@ importers:
       '@tiptap/core':
         specifier: 2.3.0
         version: 2.3.0(@tiptap/pm@2.3.0)
-      '@tiptap/extension-image':
-        specifier: 2.3.0
-        version: 2.3.0(@tiptap/core@2.3.0)
       '@tiptap/pm':
         specifier: 2.3.0
         version: 2.3.0
@@ -592,6 +593,10 @@ importers:
         version: 0.34.1(rollup@3.29.4)(typescript@5.3.3)
 
   packages/extension-table-cell:
+    dependencies:
+      '@tiptap/extension-table-cell':
+        specifier: 2.3.0
+        version: 2.3.0(@tiptap/core@2.3.0)
     devDependencies:
       '@rollup/plugin-babel':
         specifier: ^6.0.3
@@ -605,9 +610,6 @@ importers:
       '@tiptap/core':
         specifier: 2.3.0
         version: 2.3.0(@tiptap/pm@2.3.0)
-      '@tiptap/extension-table-cell':
-        specifier: 2.3.0
-        version: 2.3.0(@tiptap/core@2.3.0)
       '@tiptap/pm':
         specifier: 2.3.0
         version: 2.3.0
@@ -2277,7 +2279,7 @@ packages:
       '@tiptap/core': ^2.0.0
     dependencies:
       '@tiptap/core': 2.3.0(@tiptap/pm@2.3.0)
-    dev: true
+    dev: false
 
   /@tiptap/extension-italic@2.3.0(@tiptap/core@2.3.0):
     resolution: {integrity: sha512-jdFjLjdt5JtPlGMpoS6TEq5rznjbAYVlPwcw5VkYENVIYIGIR1ylIw2JwK1nUEsQ+OgYwVxHLejcUXWG1dCi2g==}
@@ -2336,7 +2338,7 @@ packages:
       '@tiptap/core': ^2.0.0
     dependencies:
       '@tiptap/core': 2.3.0(@tiptap/pm@2.3.0)
-    dev: true
+    dev: false
 
   /@tiptap/extension-text-style@2.3.0(@tiptap/core@2.3.0):
     resolution: {integrity: sha512-S+sQZqd+QtJjbZ0LOp0Krf0dlrdMx7BQL0sUNKPq8XXRMcfW0pEEFGIU/0VDFQCldLIuyd7lZ8zo5cjaAgskIA==}
