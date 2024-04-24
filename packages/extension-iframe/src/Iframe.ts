@@ -50,7 +50,10 @@ export const Iframe = Node.create<IframeOptions>({
         renderHTML: (attributes) => {
           return attributes.width
             ? {
-                width: parseInt(attributes.width),
+                width:
+                  attributes.width === '100%'
+                    ? '100%'
+                    : parseInt(attributes.width),
               }
             : {};
         },
