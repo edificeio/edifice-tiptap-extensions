@@ -1,6 +1,6 @@
 {
   "name": "@edifice-tiptap-extensions/extension-hyperlink",
-  "version": "1.0.5-develop-b2school.8",
+  "version": "1.0.6-develop.0",
   "description": "Rich Text Editor Hyperlink Extension",
   "main": "dist/index.cjs",
   "module": "dist/index.js",
