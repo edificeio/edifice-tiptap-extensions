@@ -1,6 +1,10 @@
 {
   "$schema": "node_modules/lerna/schemas/lerna-schema.json",
+<<<<<<< HEAD
   "version": "1.0.6",
+=======
+  "version": "1.0.5-develop-b2school.9",
+>>>>>>> f359016 (chore(release): version & publish)
   "npmClient": "pnpm",
   "command": {
     "version": {
