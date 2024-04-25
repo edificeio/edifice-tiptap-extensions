@@ -1,6 +1,6 @@
 {
   "name": "@edifice-tiptap-extensions/extension-abbr",
-  "version": "1.0.6-develop.1",
+  "version": "1.0.6-develop.2",
   "description": "Rich Text Editor Abbr Extension",
   "type": "module",
   "exports": {
