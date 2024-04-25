@@ -1,6 +1,6 @@
 {
   "name": "@edifice-tiptap-extensions/extension-linker",
-  "version": "1.0.5-develop-b2school.8",
+  "version": "1.0.5-develop-b2school.9",
   "description": "Rich Text Editor Linker Extension",
   "main": "dist/index.cjs",
   "module": "dist/index.js",
