@@ -4,6 +4,10 @@
 ![bundlephobia](https://img.shields.io/bundlephobia/min/@edifice-tiptap-extensions/extension-image?style=flat-square)
 
 A Tiptap extension that extends Image.
+* Allows a `size` attribute : 'small', 'medium', 'large'
+* Sets default width to 350 pixels
+* Detects and adapts old custom emojis
+
 
 ## Installation
 
