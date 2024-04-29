@@ -1,6 +1,6 @@
 {
   "name": "@edifice-tiptap-extensions/extension-audio",
-  "version": "1.0.4",
+  "version": "1.0.6-develop.2",
   "description": "Rich Text Editor Audio Extension",
   "main": "dist/index.cjs",
   "module": "dist/index.js",
