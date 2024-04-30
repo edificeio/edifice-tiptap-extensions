@@ -38,14 +38,14 @@
     "release": "pnpm run generate-commit-version && pnpm run build"
   },
   "dependencies": {
-    "@tiptap/core": "2.0.3",
-    "@tiptap/extension-bold": "2.0.3",
-    "@tiptap/extension-document": "2.0.3",
-    "@tiptap/extension-paragraph": "2.0.3",
-    "@tiptap/extension-text": "2.0.3",
-    "@tiptap/html": "2.0.3",
-    "@tiptap/pm": "2.0.3",
-    "@tiptap/starter-kit": "2.0.3"
+    "@tiptap/core": "2.3.0",
+    "@tiptap/extension-bold": "2.3.0",
+    "@tiptap/extension-document": "2.3.0",
+    "@tiptap/extension-paragraph": "2.3.0",
+    "@tiptap/extension-text": "2.3.0",
+    "@tiptap/html": "2.3.0",
+    "@tiptap/pm": "2.3.0",
+    "@tiptap/starter-kit": "2.3.0"
   },
   "publishConfig": {
     "access": "public"
